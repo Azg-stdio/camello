@@ -1,0 +1,32 @@
+# --- Personal / private (never commit) ---
+# Resumes and any exported personal data
+CV_*
+*.pdf
+*.docx
+*.csv
+profile/
+# Local database, cached postings, judgments
+data/
+*.db
+*.sqlite
+*.sqlite3
+# Obsidian vault link / local config
+.obsidian/
+vault/
+obsidian.local.json
+# Secrets and machine-local config
+.env
+.env.*
+!.env.example
+config.local.*
+
+# --- Tooling ---
+node_modules/
+dist/
+build/
+.cache/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
