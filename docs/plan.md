@@ -1,41 +1,40 @@
 # Plan
 
-## Stage 0: works for me
+Cada tarea tiene su propio documento en [`tareas/`](tareas/). Las decisiones cerradas están en [`decisiones.md`](decisiones.md).
 
-Goal: I find one posting I apply to that I had not seen elsewhere.
+## Etapa 0: funciona para mí
 
-- [ ] Profile: resume text + preferences file in `profile/` (gitignored)
-- [ ] Ingest: Greenhouse, Lever, Ashby public feeds for a seed list of companies known to hire in Colombia
-- [ ] Ingest: Hacker News "Who is hiring" monthly thread, remote + LATAM filter
-- [ ] Store: SQLite, one row per posting, dedup by URL, `first_seen` / `last_seen`
-- [ ] Judge: agent reads posting + profile, returns fixed JSON (eligibility, pay band, contract type, fit, evidence quote)
-- [ ] CLI: `search`, `judge`, `shortlist`, `refresh`, `stats`
-- [ ] Skill: `SKILL.md` so Claude Code / Cursor drive the CLI
-- [ ] Dashboard: local page over the SQLite db (shortlist, pipeline, coverage fraction)
-- [ ] Obsidian: write one note per shortlisted posting + a daily digest into a vault folder
-- [ ] Refresh schedule: agent-configurable (cron / Task Scheduler / Claude Code routine)
+Meta medible: encuentro una vacante a la que aplico y que no había visto en otro lado.
 
-## Stage 1: works for Colombia
+| # | Tarea | Documento |
+|---|-------|-----------|
+| 00 | Esquema de juicio (el contrato central) | [tareas/00-esquema-de-juicio.md](tareas/00-esquema-de-juicio.md) |
+| 01 | Perfil y hoja de vida maestra | [tareas/01-perfil.md](tareas/01-perfil.md) |
+| 02 | Lista semilla de empresas | [tareas/02-lista-semilla-empresas.md](tareas/02-lista-semilla-empresas.md) |
+| 03 | Ingesta: feeds ATS (Greenhouse, Lever, Ashby) | [tareas/03-ingesta-ats.md](tareas/03-ingesta-ats.md) |
+| 04 | Ingesta: Hacker News "Who is hiring" | [tareas/04-ingesta-hn.md](tareas/04-ingesta-hn.md) |
+| 05 | Almacenamiento SQLite y detección de cambios | [tareas/05-almacenamiento.md](tareas/05-almacenamiento.md) |
+| 06 | CLI `camello` | [tareas/06-cli.md](tareas/06-cli.md) |
+| 07 | Juicio con agente | [tareas/07-juicio-con-agente.md](tareas/07-juicio-con-agente.md) |
+| 08 | Skill para agentes de código | [tareas/08-skill.md](tareas/08-skill.md) |
+| 09 | Pipeline de aplicaciones | [tareas/09-pipeline-aplicaciones.md](tareas/09-pipeline-aplicaciones.md) |
+| 10 | Dashboard local | [tareas/10-dashboard.md](tareas/10-dashboard.md) |
+| 11 | Integración con Obsidian | [tareas/11-obsidian.md](tareas/11-obsidian.md) |
+| 12 | Refresco programado | [tareas/12-refresco-programado.md](tareas/12-refresco-programado.md) |
+| 13 | Adaptar la hoja de vida a la vacante | [tareas/13-adaptar-cv.md](tareas/13-adaptar-cv.md) |
+| 14 | Internacionalización (es / en) | [tareas/14-i18n.md](tareas/14-i18n.md) |
 
-- [ ] Seed company list grows to 300+; community-submittable
-- [ ] GetOnBrd and Torre APIs
-- [ ] COP conversion, Ley 2466 contractor vs employee flag
-- [ ] Spanish + English output
-- [ ] 20 Colombian devs try it; measure the Stage 0 goal for each
+Orden sugerido: 00 → 01 → 02 → 03 → 05 → 06 → 07 → 08 → 13 → 09 → 10 → 11 → 12 → 04 → 14. La 14 se aplica desde el principio (todas las cadenas pasan por `t()`), pero la traducción al inglés se completa al final.
 
-## Stage 2: works for LATAM
+## Etapa 1: funciona para Colombia
 
-- [ ] Per-country eligibility rules and currency
-- [ ] Timezone fit (UTC-3 to UTC-8)
-- [ ] Optional hosted sync + scheduled watches (paid tier)
+- Lista semilla crece a 300+ empresas, con contribuciones por pull request.
+- Fuentes: APIs de GetOnBrd y Torre.
+- Conversión a COP con tasa del día; bandera contratista vs empleado (Ley 2466 de 2025).
+- 20 desarrolladores colombianos lo prueban; se mide la meta de la Etapa 0 para cada uno.
 
-## Open decisions
+## Etapa 2: funciona para LATAM
 
-See the discussion in the first session. Decide before writing `src/`:
-
-1. Language / runtime for the CLI (TypeScript on Node 22 vs Python)
-2. Dashboard: static HTML over a JSON export vs a tiny local server; UI kit (Web Awesome vs shadcn vs plain)
-3. Obsidian integration: plain Markdown files in a vault folder (simple, no plugin) vs Local REST API plugin
-4. Refresh scheduling: OS scheduler vs Claude Code scheduled routine vs both
-5. Judgment schema (the JSON the agent must return) — this is the core contract
-6. Seed company list source and format
+- Reglas de elegibilidad y moneda por país.
+- Ajuste de zona horaria (UTC-3 a UTC-8).
+- Opcional: sincronización alojada y vigilancias programadas (nivel pago).

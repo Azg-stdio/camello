@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "vacante_id": "greenhouse:ejemplo:1234567",
+  "elegibilidad": "abierta",
+  "evidencia_elegibilidad": "We hire full-time contractors anywhere in Latin America through Deel.",
+  "alcance_geografico": "latam",
+  "contrato": "contratista",
+  "pago": {
+    "min": 4000,
+    "max": 5500,
+    "moneda": "USD",
+    "periodo": "mensual",
+    "ajustado_a": "latam",
+    "evidencia": "USD 4,000 - 5,500 per month depending on experience."
+  },
+  "seniority": "senior",
+  "zona_horaria": "compatible",
+  "idioma_requerido": "en",
+  "ajuste": {
+    "puntaje": 84,
+    "fortalezas": [
+      "10 años en Drupal, el anuncio pide 5+",
+      "Experiencia liderando migraciones Drupal 7 a 10, mencionada como responsabilidad principal"
+    ],
+    "brechas": [
+      "Piden experiencia con Next.js como frontend desacoplado; la maestra no la menciona"
+    ]
+  },
+  "veredicto": "aplicar",
+  "resumen": "Agencia Drupal remota que contrata contratistas en LATAM, banda mensual en USD clara y rol alineado con perfil de lead.",
+  "juzgado_en": "2026-09-06T15:00:00Z",
+  "juzgado_por": "claude-code"
+}

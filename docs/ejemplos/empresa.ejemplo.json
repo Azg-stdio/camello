@@ -1,0 +1,9 @@
+{
+  "nombre": "Lullabot",
+  "ats": "lever",
+  "slug": "lullabot",
+  "etiquetas": ["drupal", "agencia"],
+  "contrata_en": ["latam"],
+  "nota": "Agencia Drupal 100% remota. Verificar slug abriendo https://api.lever.co/v0/postings/lullabot?mode=json",
+  "agregada": "2026-09-06"
+}
