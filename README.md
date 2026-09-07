@@ -27,7 +27,7 @@ npm link              # deja el comando `camello` disponible en la terminal
 camello init          # asistente de 12 preguntas, escribe profile/ y config.local.json
 ```
 
-`profile/` y `config.local.json` están ignorados por git.
+`profile/` y `config.local.json` están ignorados por git. Cada vacante a la que aplicas tiene su carpeta en `profile/adaptadas/` con el CV adaptado, el PDF con tu nombre (`MiguelArbelaez_CV.pdf`, nunca el de la empresa), la carta si hizo falta y la preparación de entrevista.
 
 ## Uso
 
@@ -46,8 +46,10 @@ Con agente. Copia la carpeta `skill/` a `.claude/skills/camello/` (Claude Code) 
 | "importa mi hoja de vida desde CV.pdf" | Lee el PDF y escribe `profile/cv.md` con un banco de logros por empleo. |
 | "busca trabajo nuevo" | Corre `refresh`, juzga las pendientes siguiendo [skill/juicio.md](skill/juicio.md) y muestra el shortlist. |
 | "prepara mi hoja de vida para Wikimedia" | Adapta el CV siguiendo [skill/cv.md](skill/cv.md), muestra qué logros escogió, verifica que no agregó nada y deja el HTML listo para imprimir a PDF. |
-| "aplica a Wikimedia" | Con `claude --chrome`, abre el anuncio, llena el formulario con tus datos y el PDF adaptado, y se detiene antes de enviar para que revises ([skill/aplicar.md](skill/aplicar.md)). |
-| "ya apliqué a esa" | Mueve la vacante en el pipeline. |
+| "aplica a Wikimedia" | Hace todo el recorrido: adapta el CV, te muestra el diff, genera el PDF con tu nombre, abre el anuncio con `claude --chrome`, llena el formulario, escribe la carta si es obligatoria y se detiene antes de enviar para que revises ([skill/aplicar.md](skill/aplicar.md)). Solo te pregunta dos veces: al confirmar el CV y al enviar. |
+| "aplica a las del shortlist" | Lo mismo en lote. Adapta todas, una sola confirmación, y los formularios de a uno. |
+| "prepárame para la llamada de Wikimedia" | Escribe preguntas probables y respuestas en el idioma de la vacante, con tus hechos, para tenerlas abiertas durante la llamada ([skill/entrevista.md](skill/entrevista.md)). Si el formulario avisa de una llamada automática, lo hace antes de que envíes. |
+| "ya apliqué a esa" | Mueve la vacante en el pipeline y registra el PDF que se usó. |
 
 El agente juzga 20 vacantes por corrida, empezando por las que mencionan tu stack. El límite y las prioridades están en `config.json`.
 

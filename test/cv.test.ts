@@ -44,3 +44,52 @@ test("nombre de archivo seguro en Windows", () => {
   assert.equal(nombreArchivoSeguro('Lullabot: Senior "Drupal" Dev / Remote?'), "Lullabot-Senior-Drupal-Dev-Remote");
   assert.equal(nombreArchivoSeguro("Ñandú Élite"), "Nandu-Elite");
 });
+
+test("carpeta por vacante y nombres neutros de PDF", async () => {
+  const { archivosAdaptada, claveVacante, nombreCarpetaAdaptada, nombrePdfCandidato } = await import("../src/perfil/index.js");
+  const { sep } = await import("node:path");
+  const v = { id: "greenhouse:wikimedia:8158048", empresa: "Wikimedia Foundation", titulo: "Senior Software Engineer, MediaWiki Content Platform Team" };
+  assert.equal(claveVacante(v.id), "8158048");
+  assert.equal(nombreCarpetaAdaptada(v), "wikimedia-foundation-8158048-senior-software-engineer-mediawiki-content-platform");
+  assert.equal(nombrePdfCandidato("Miguel Arbeláez", "CV"), "MiguelArbelaez_CV.pdf");
+  assert.equal(nombrePdfCandidato("Miguel Arbeláez", "CoverLetter", "{nombre}-{tipo}"), "MiguelArbelaez-CoverLetter.pdf");
+  assert.equal(nombrePdfCandidato("", "CV"), "Candidato_CV.pdf");
+  const a = archivosAdaptada(v, "Miguel Arbeláez", undefined, "/base");
+  assert.ok(a.md.split(sep).join("/").endsWith("/base/wikimedia-foundation-8158048-senior-software-engineer-mediawiki-content-platform/wikimedia-foundation-cv.md"));
+  assert.ok(a.pdf.endsWith("MiguelArbelaez_CV.pdf"));
+  assert.ok(a.carta.endsWith("wikimedia-foundation-carta.md"));
+  assert.ok(a.carta_pdf.endsWith("MiguelArbelaez_CoverLetter.pdf"));
+  assert.ok(a.entrevista.endsWith("wikimedia-foundation-entrevista.md"));
+});
+
+test("apply encuentra la adaptada por carpeta y cae al formato plano", async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import("node:fs");
+  const { join } = await import("node:path");
+  const { tmpdir } = await import("node:os");
+  const { adaptadaPara } = await import("../src/cli/comandos/apply.js");
+  const base = mkdtempSync(join(tmpdir(), "camello-adaptadas-"));
+  const mediawiki = { id: "greenhouse:wikimedia:8158048", empresa: "Wikimedia Foundation", titulo: "Senior Software Engineer, MediaWiki" };
+  const wikidata = { id: "greenhouse:wikimedia:8060307", empresa: "Wikimedia Foundation", titulo: "Senior Software Engineer, Wikidata Platform" };
+  // Carpeta solo para MediaWiki; Wikidata queda con un archivo plano del formato anterior.
+  const carpeta = join(base, "wikimedia-foundation-8158048-senior-software-engineer-mediawiki");
+  mkdirSync(carpeta);
+  writeFileSync(join(carpeta, "wikimedia-foundation-cv.md"), "# cv");
+  writeFileSync(join(carpeta, "MiguelArbelaez_CV.pdf"), "pdf");
+  writeFileSync(join(carpeta, "wikimedia-foundation-carta.md"), "carta");
+  writeFileSync(join(carpeta, "MiguelArbelaez_CoverLetter.pdf"), "pdf");
+  writeFileSync(join(carpeta, "wikimedia-foundation-entrevista.md"), "# preguntas");
+  writeFileSync(join(base, "Wikimedia-Foundation-Senior-Software-Engineer-Wikidata-Platform.md"), "# viejo");
+  const a = adaptadaPara(mediawiki, base);
+  assert.equal(a.carpeta, carpeta);
+  assert.ok(a.md?.endsWith("wikimedia-foundation-cv.md"));
+  assert.ok(a.pdf?.endsWith("MiguelArbelaez_CV.pdf"), "el PDF del CV no es la carta");
+  assert.ok(a.carta?.endsWith("wikimedia-foundation-carta.md"));
+  assert.ok(a.carta_pdf?.endsWith("MiguelArbelaez_CoverLetter.pdf"));
+  assert.ok(a.entrevista?.endsWith("wikimedia-foundation-entrevista.md"));
+  assert.ok(!a.md?.includes("entrevista"), "la preparación de entrevista no se confunde con el CV");
+  const b = adaptadaPara(wikidata, base);
+  assert.equal(b.carpeta, null);
+  assert.ok(b.md?.endsWith("Wikidata-Platform.md"), "cae al archivo plano de la misma empresa");
+  assert.equal(b.pdf, null);
+  assert.deepEqual(adaptadaPara({ id: "x:y:1", empresa: "Nadie", titulo: "Nada" }, base).md, null);
+});

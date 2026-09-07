@@ -47,7 +47,9 @@ Estados del pipeline: `vista → preseleccionada → aplicada → entrevista →
 | "Mira esta vacante: <url>" | `camello judge <url>` → `camello show <id> --completa` → juzgar → `camello judge <id> --from -` |
 | "Muéstrame la vacante X" | `camello show <id>` |
 | "Prepara mi hoja de vida para X" | `camello cv tailor <id> --json` → adaptar (ver abajo) → `camello cv diff` → confirmar → `camello cv render` |
-| "Aplica a X" | `camello apply <id> --json` → llenar el formulario en el navegador siguiendo `aplicar.md` → parar antes de enviar → reporte al usuario |
+| "Prepárame para la llamada / entrevista de X" | `camello apply <id> --json` → escribir `<empresa>-entrevista.md` en la carpeta de la vacante siguiendo `entrevista.md` |
+| "Aplica a X" | Flujo completo de abajo: adaptar → confirmar → render → `camello apply <id> --json` → llenar el formulario siguiendo `aplicar.md` → parar antes de enviar → reporte |
+| "Aplica a las del shortlist" | Mismo flujo en lote: adaptar todas → una confirmación con tabla → render todas → formularios de a uno, con "ya" del usuario entre cada uno |
 | "Ya apliqué a X" | `camello status <id> aplicada --cv <archivo.pdf>` |
 | "Me llamaron a entrevista / me rechazaron / descarta esa" | `camello status <id> entrevista\|rechazada\|descartada --nota "..."` |
 | "Muéstrame el tablero" | `camello dashboard` |
@@ -60,6 +62,21 @@ Estados del pipeline: `vista → preseleccionada → aplicada → entrevista →
 Primera vez en una máquina: el usuario corre `camello init` (asistente interactivo; no lo corras tú con `--yes` salvo que el usuario lo pida) → si dio la ruta de su hoja de vida, impórtala como indica `camello profile import` → `camello profile check` → `camello sources check` → `camello refresh`.
 
 La expectativa salarial vive en `config.local.json` (`salario_minimo_usd_mes`) y en `profile/preferencias.md`. Una oferta por debajo **no se descarta por eso**: se marca "(< mínimo)" en `shortlist` y "bajo tu mínimo" en el dashboard.
+
+## Flujo completo de una vacante
+
+Cuando el usuario dice "aplica a X" o "aplica a las del shortlist", haces todo el recorrido y le pides decisión **solo dos veces**: al confirmar la hoja de vida adaptada y al hacer clic en enviar. Todo lo demás lo resuelves tú con las reglas de cada skill.
+
+1. `camello cv tailor <id> --json` → escribir `<empresa>-cv.md` en la carpeta de la vacante → `camello cv diff`.
+2. **Checkpoint 1.** Muestra el diff (logros escogidos, palabras clave, frases sin respaldo, brechas reales) y espera confirmación. Con varias vacantes, adapta todas primero y pide una sola confirmación con una tabla, una fila por vacante.
+3. `camello cv render` → PDF con nombre neutro. Sin abrir el PDF si son varias (`--no-open`).
+4. `camello apply <id> --json` → abre el formulario. Antes de llenar, lee el formulario entero y anota lo que el usuario debe saber (llamada automática tras enviar, suscripción a boletín, ubicación distinta a la descripción, campos obligatorios inesperados).
+5. Si el formulario exige carta, escríbela y súbela (`aplicar.md`). Si avisa de una llamada o prueba inmediata, escribe `<empresa>-entrevista.md` antes de seguir (`entrevista.md`).
+6. Llena todo lo que el perfil respalda, deja vacío lo que no, nunca toques consentimientos ni el botón de enviar.
+7. **Checkpoint 2.** Reporte: fracción de campos, qué llenaste, qué dejaste vacío y por qué, las respuestas abiertas completas, los avisos del formulario. El usuario revisa, edita, envía.
+8. Cuando diga que envió: `camello status <id> aplicada` (toma el PDF de la carpeta solo). Ofrece la preparación de entrevista si no existe. Sigue con la siguiente vacante.
+
+Una vacante en el navegador a la vez. Las adaptaciones y los diffs sí pueden ir en lote.
 
 ## Cómo juzgar
 
@@ -78,10 +95,10 @@ Reglas completas en [`cv.md`](cv.md). Resumen:
 
 1. `camello cv tailor <id> --json` devuelve el texto de la vacante, el juicio (fortalezas, brechas), palabras clave del anuncio y las rutas del perfil.
 2. Lee `profile/cv.md` (la maestra con banco de logros). **Selecciona, no inventes.** Ninguna habilidad ni logro que no esté en la maestra puede aparecer.
-3. Escribe `profile/adaptadas/<empresa>-<rol>.md` con el mismo formato de la maestra, 3 a 5 logros por experiencia, habilidades reordenadas según el anuncio, máximo 2 páginas, en el idioma de la vacante.
+3. Escribe el Markdown en la ruta `salida` que devuelve `tailor` (carpeta por vacante en `profile/adaptadas/`, ver `cv.md`), con el mismo formato de la maestra, 3 a 5 logros por experiencia, habilidades reordenadas según el anuncio, máximo 2 páginas, en el idioma de la vacante.
 4. `camello cv diff <archivo.md>`: muestra al usuario qué logros escogiste, qué palabras clave cubriste y qué frases no aparecen en la maestra. **Espera confirmación** antes de dar la versión por lista.
 5. `camello cv render <archivo.md>` genera el HTML y el PDF (con el Chrome o Edge instalado) y abre el PDF. Sin navegador, el usuario imprime desde el HTML con Ctrl+P.
-6. Al aplicar: `camello status <id> aplicada --cv <archivo.md>`.
+6. Al aplicar: `camello status <id> aplicada --cv <archivo.pdf>`. El PDF se llama `<Nombre>_CV.pdf`, sin empresa ni rol, porque es lo que ve el reclutador.
 
 ## Cómo reportar
 

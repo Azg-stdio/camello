@@ -66,7 +66,7 @@ export function prepararCuerpo(cuerpo: string, idioma: string): { titular: strin
   return { titular, cuerpo: out.join("\n") };
 }
 
-export function renderizarCv(md: string, opciones: { pagina?: "letter" | "A4"; archivo?: string } = {}): string {
+export function renderizarCv(md: string, opciones: { pagina?: "letter" | "A4"; archivo?: string; tipo?: "cv" | "carta" } = {}): string {
   const bruto = parsearCv(md);
   const d = bruto.datos;
   const idioma = (d["idioma_documento"] ?? d["lang"] ?? getLang()).toLowerCase().startsWith("en") ? "en" : "es";
@@ -78,7 +78,7 @@ export function renderizarCv(md: string, opciones: { pagina?: "letter" | "A4"; a
     .join(" · ");
   return plantilla()
     .replace("{{LANG}}", idioma)
-    .replace("{{TITULO}}", escaparHtml(d["nombre"] ? `${d["nombre"]} · CV` : "CV"))
+    .replace("{{TITULO}}", escaparHtml(`${d["nombre"] ? `${d["nombre"]} · ` : ""}${opciones.tipo === "carta" ? (idioma === "en" ? "Cover letter" : "Carta") : "CV"}`))
     .replace("{{PAGINA}}", opciones.pagina ?? "letter")
     .replace("{{NOMBRE}}", escaparHtml(d["nombre"] ?? ""))
     .replace("{{TITULAR}}", escaparHtml(preparado.titular))

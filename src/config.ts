@@ -14,6 +14,8 @@ export interface Config {
   /** Expectativa salarial en USD al mes. Solo marca ofertas por debajo; nunca las oculta ni las descarta. */
   salario_minimo_usd_mes?: number;
   obsidian?: { vault: string; carpeta?: string };
+  /** Nombre de los PDF que salen de la máquina. `{nombre}` es el del frontmatter sin acentos ni espacios; `{tipo}` es `CV` o `CoverLetter`. */
+  cv?: { nombre_pdf?: string };
 }
 
 const DEFAULTS: Config = {
@@ -26,6 +28,7 @@ const DEFAULTS: Config = {
   hn: { requiere: ["remote"], alguna_de: ["latam", "latin america", "americas", "colombia", "worldwide", "anywhere"] },
   refresh: { cada: "6h" },
   tasa_cop: 4100,
+  cv: { nombre_pdf: "{nombre}_{tipo}" },
 };
 
 function leerJson(ruta: string): Record<string, unknown> {

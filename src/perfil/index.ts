@@ -17,7 +17,8 @@ export const SECCIONES_PREFERENCIAS = [
   "Idioma de trabajo",
   "Empresas o sectores a evitar",
 ];
-export const FRONTMATTER_CV = ["nombre", "ciudad", "email"];
+/** `idiomas` es obligatorio porque casi todo formulario pregunta el nivel de inglés y el agente no debe adivinarlo. */
+export const FRONTMATTER_CV = ["nombre", "ciudad", "email", "idiomas"];
 export const DATOS_SENSIBLES = [/\bc[ée]dula\b/i, /\bedad\s*:/i, /\bestado civil\b/i, /\bfecha de nacimiento\b/i, /\bdate of birth\b/i, /\bmarital status\b/i];
 
 export interface Problema {
@@ -136,3 +137,60 @@ export function nombreArchivoSeguro(s: string): string {
 }
 
 export { join };
+
+/** Tarea 13 · Cada vacante adaptada vive en su propia carpeta dentro de profile/adaptadas. */
+export interface VacanteNombre {
+  id: string;
+  empresa: string;
+  titulo: string;
+}
+
+/** Último segmento del id de la vacante (`greenhouse:wikimedia:8158048` → `8158048`). */
+export function claveVacante(id: string): string {
+  const partes = id.split(":").filter(Boolean);
+  return nombreArchivoSeguro(partes[partes.length - 1] ?? id).toLowerCase();
+}
+
+/** `<empresa>-<clave>-<rol>` en minúsculas, máximo 80 caracteres. La clave identifica la vacante exacta. */
+export function nombreCarpetaAdaptada(v: VacanteNombre): string {
+  const partes = [nombreArchivoSeguro(v.empresa), claveVacante(v.id), nombreArchivoSeguro(v.titulo)].map((p) => p.toLowerCase());
+  return partes.join("-").replace(/-+/g, "-").slice(0, 80).replace(/-+$/, "");
+}
+
+/** Nombre neutro para los PDF que salen de la máquina: `MiguelArbelaez_CV.pdf`, `MiguelArbelaez_CoverLetter.pdf`. */
+export function nombrePdfCandidato(nombre: string, tipo: "CV" | "CoverLetter", plantilla = "{nombre}_{tipo}"): string {
+  const base =
+    nombre
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^A-Za-z0-9]+/g, "") || "Candidato";
+  return `${plantilla.replace("{nombre}", base).replace("{tipo}", tipo)}.pdf`;
+}
+
+export interface ArchivosAdaptada {
+  carpeta: string;
+  md: string;
+  html: string;
+  pdf: string;
+  carta: string;
+  carta_html: string;
+  carta_pdf: string;
+  /** Preguntas y respuestas para la llamada de filtro o la entrevista, en el idioma de la vacante. */
+  entrevista: string;
+}
+
+/** Rutas de todos los archivos de una vacante adaptada. Los de trabajo llevan el prefijo de la empresa; los PDF, el nombre del candidato. */
+export function archivosAdaptada(v: VacanteNombre, nombreCandidato: string, plantillaPdf?: string, base = rutaAdaptadas()): ArchivosAdaptada {
+  const carpeta = join(base, nombreCarpetaAdaptada(v));
+  const empresa = nombreArchivoSeguro(v.empresa).toLowerCase();
+  return {
+    carpeta,
+    md: join(carpeta, `${empresa}-cv.md`),
+    html: join(carpeta, `${empresa}-cv.html`),
+    pdf: join(carpeta, nombrePdfCandidato(nombreCandidato, "CV", plantillaPdf)),
+    carta: join(carpeta, `${empresa}-carta.md`),
+    carta_html: join(carpeta, `${empresa}-carta.html`),
+    carta_pdf: join(carpeta, nombrePdfCandidato(nombreCandidato, "CoverLetter", plantillaPdf)),
+    entrevista: join(carpeta, `${empresa}-entrevista.md`),
+  };
+}

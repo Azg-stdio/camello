@@ -6,7 +6,8 @@ Que el agente llene el formulario de aplicación de una vacante en el navegador 
 
 ## Cómo
 
-- `camello apply <id> [--cv <archivo>]` imprime la URL, la hoja de vida adaptada más reciente para esa empresa (PDF, HTML y Markdown en `profile/adaptadas/`), los datos de contacto del frontmatter de `profile/cv.md`, el juicio y la expectativa salarial. Con `--json`, todo en el sobre estándar.
+- `camello apply <id> [--cv <archivo>]` imprime la URL, la hoja de vida adaptada de esa vacante (la carpeta `profile/adaptadas/<empresa>-<clave>-<rol>/` con PDF, HTML, Markdown y carta si existe; los archivos planos del formato anterior sirven de respaldo), los datos de contacto del frontmatter de `profile/cv.md`, el juicio y la expectativa salarial. Con `--json`, todo en el sobre estándar.
+- `skill/entrevista.md` tiene las reglas para escribir `<empresa>-entrevista.md`, preguntas y respuestas en el idioma de la vacante para la llamada de filtro. Se escribe antes de enviar si el formulario avisa de una llamada automática (LatamCent llama con una IA cinco minutos después de enviar).
 - `skill/aplicar.md` tiene las reglas para el agente: qué llenar, qué dejar vacío, cómo redactar respuestas abiertas, y dónde parar.
 - En Claude Code el control del navegador es `claude --chrome` (Claude in Chrome). Otros agentes usan su equivalente. Sin navegador controlable, el agente entrega el paquete ordenado para que el usuario lo pegue.
 - Al terminar, el usuario envía y el agente registra `camello status <id> aplicada --cv <pdf>`.
@@ -14,7 +15,7 @@ Que el agente llene el formulario de aplicación de una vacante en el navegador 
 ## Reglas
 
 - El agente nunca hace clic en enviar, no crea cuentas, no escribe contraseñas, no resuelve captchas, no acepta términos ni consentimientos.
-- Campos demográficos (EEO) se dejan vacíos o en "prefiero no decir".
+- Campos demográficos (EEO) se dejan vacíos o en "prefiero no decir", salvo los que el usuario registró en `preferencias.md` bajo "Datos para formularios de aplicación".
 - Una vacante por instrucción, con revisión del usuario entre cada una.
 - No se aplica a vacantes con veredicto `descartar` o elegibilidad `cerrada` salvo pedido explícito.
 - Respuestas abiertas solo con hechos de `profile/cv.md`, en el idioma del formulario y con las reglas de redacción de `skill/cv.md`.

@@ -1,4 +1,5 @@
 import { ESTADOS, type Estado } from "../../tipos.js";
+import { adaptadaPara } from "./apply.js";
 import { fecha, numero, t } from "../../i18n/index.js";
 import { recortar, tabla, type Comando, type Contexto } from "../comun.js";
 
@@ -30,10 +31,13 @@ const comando: Comando = {
       ctx.error(t("show.no_existe", { id }));
       return ctx.terminar(null, { ok: 0, total: 1 }, false);
     }
-    const r = db.setEstado(id, estado as Estado, values.nota ?? null, values.cv ?? null);
+    // Al marcar `aplicada` sin --cv, se registra el PDF de la carpeta de la vacante, que es el que se subió.
+    const cv = values.cv ?? (estado === "aplicada" ? adaptadaPara(v).pdf : null);
+    const r = db.setEstado(id, estado as Estado, values.nota ?? null, cv);
     ctx.linea(t("status.cambiado", { id, de: r.de ? t(`estado.${r.de}`) : "·", a: t(`estado.${r.a}`) }));
+    if (cv) ctx.linea(t("status.cv_registrado", { ruta: cv }));
     ctx.siguiente(estado === "preseleccionada" ? `camello cv tailor ${id}` : `camello show ${id}`);
-    return ctx.terminar({ id, ...r });
+    return ctx.terminar({ id, cv, ...r });
   },
 };
 

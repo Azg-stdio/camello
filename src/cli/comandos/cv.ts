@@ -1,7 +1,7 @@
-import { existsSync, readFileSync } from "node:fs";
-import { basename, resolve } from "node:path";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
+import { basename, dirname, join, resolve } from "node:path";
 import { spawn } from "node:child_process";
-import { leerPerfil, nombreArchivoSeguro, rutaAdaptadas } from "../../perfil/index.js";
+import { archivosAdaptada, leerFrontmatter, leerPerfil, nombrePdfCandidato } from "../../perfil/index.js";
 import { enRaiz } from "../../rutas.js";
 import { diffCv, palabrasClave } from "../../cv/analisis.js";
 import { escribirHtml, renderizarCv } from "../../cv/render.js";
@@ -42,8 +42,10 @@ const comando: Comando = {
       const juicio = db.ultimoJuicio(id) ?? null;
       const perfil = leerPerfil();
       const claves = palabrasClave(`${v.titulo}\n${v.descripcion_texto}`);
-      const nombre = `${nombreArchivoSeguro(v.empresa)}-${nombreArchivoSeguro(v.titulo)}.md`;
-      const destino = resolve(rutaAdaptadas(), nombre);
+      const nombreCandidato = leerFrontmatter(perfil.cv).datos["nombre"] ?? "";
+      const archivos = archivosAdaptada(v, nombreCandidato, ctx.config.cv?.nombre_pdf);
+      mkdirSync(archivos.carpeta, { recursive: true });
+      const destino = archivos.md;
       const idioma = /[¿ñáéíóú]|\b(el|la|los|las|para|con|desarrollador|experiencia)\b/i.test(v.descripcion_texto.slice(0, 2000)) && !/\b(the|and|with|experience|you will)\b/i.test(v.descripcion_texto.slice(0, 2000)) ? "es" : "en";
       ctx.linea(t("cv.tailor_titulo", { empresa: v.empresa, titulo: v.titulo }));
       ctx.linea(t("cv.tailor_claves", { claves: claves.slice(0, 15).map((k) => k.termino).join(", ") || "-" }));
@@ -64,7 +66,8 @@ const comando: Comando = {
         perfil: perfil.rutas,
         reglas: enRaiz("skill", "cv.md"),
         salida: destino,
-        siguiente: [`camello cv diff ${destino} --id ${id}`, `camello cv render ${destino}`, `camello status ${id} aplicada --cv ${basename(destino)}`],
+        archivos,
+        siguiente: [`camello cv diff ${destino} --id ${id}`, `camello cv render ${destino}`, `camello status ${id} aplicada --cv ${archivos.pdf}`],
       });
     }
 
@@ -74,13 +77,17 @@ const comando: Comando = {
       const ruta = resolve(archivo);
       if (!existsSync(ruta)) throw new Error(t("profile.import_no_existe", { ruta }));
       const md = readFileSync(ruta, "utf8");
-      const html = renderizarCv(md, { pagina: values.a4 ? "A4" : "letter", archivo: ruta });
+      const { datos } = leerFrontmatter(md);
+      const tipo = /carta|cover/i.test(basename(ruta)) || /^carta/i.test(datos["tipo"] ?? "") ? "carta" : "cv";
+      const html = renderizarCv(md, { pagina: values.a4 ? "A4" : "letter", archivo: ruta, tipo });
       const salida = values.out ? resolve(values.out) : ruta.replace(/\.md$/i, "") + ".html";
       escribirHtml(salida, html);
       ctx.linea(t("cv.render_listo", { ruta: salida }));
       let pdf: string | null = null;
       if (!values["no-pdf"]) {
-        const rutaPdf = salida.replace(/\.html?$/i, "") + ".pdf";
+        // El PDF es lo único que sale de la máquina: lleva el nombre del candidato, nunca el de la empresa.
+        const nombreCandidato = datos["nombre"] ?? leerFrontmatter(leerPerfil().cv).datos["nombre"] ?? "";
+        const rutaPdf = nombreCandidato ? join(dirname(salida), nombrePdfCandidato(nombreCandidato, tipo === "carta" ? "CoverLetter" : "CV", ctx.config.cv?.nombre_pdf)) : salida.replace(/\.html?$/i, "") + ".pdf";
         const r = htmlAPdf(salida, rutaPdf);
         if (r.ok) {
           pdf = rutaPdf;

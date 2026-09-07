@@ -9,10 +9,11 @@ Generas, a partir de la hoja de vida maestra (`profile/cv.md`) y del juicio de u
    - `juicio`: el último juicio, con `ajuste.fortalezas` y `ajuste.brechas`.
    - `palabras_clave`: términos técnicos detectados en el anuncio (framework, nube, base de datos, prácticas).
    - `perfil.cv` y `perfil.preferencias`: rutas de los archivos.
-   - `salida`: ruta sugerida en `profile/adaptadas/`.
+   - `salida`: ruta del Markdown adaptado, dentro de la carpeta de la vacante en `profile/adaptadas/`.
+   - `archivos`: todas las rutas de esa carpeta (`carpeta`, `md`, `html`, `pdf`, `carta`, `carta_html`, `carta_pdf`). La carpeta ya existe.
    - `idioma_vacante`: idioma detectado del anuncio.
 2. Lee la maestra completa. Es más larga que una hoja de vida real: cada experiencia tiene un `### Banco de logros` con todo lo que el usuario hizo. Tu trabajo es **seleccionar**.
-3. Escribe la adaptada en `profile/adaptadas/<empresa>-<rol>.md` (formato abajo).
+3. Escribe la adaptada en `salida` (formato abajo). Nunca inventes otro nombre ni otra carpeta.
 4. `camello cv diff <archivo.md>`. Muestra al usuario el resultado: logros escogidos por experiencia, palabras clave cubiertas y no cubiertas, y **frases de la adaptada que no aparecen en la maestra**. Esa última lista debe estar vacía o contener solo reordenamientos evidentes. Si hay una afirmación nueva, quítala.
 5. **Espera confirmación explícita** del usuario. No des la versión por lista sin ella.
 6. `camello cv render <archivo.md>` genera el HTML con estilo de impresión (carta, o A4 con `--a4`) y el PDF junto a él, usando el Chrome o Edge instalado. Abre el PDF. Si no hay navegador, avisa y el usuario imprime desde el HTML con Ctrl+P.
@@ -91,9 +92,20 @@ Drupal Lead · 10 años · PHP, Symfony, arquitectura de CMS y migraciones a gra
 
 Diferencias con la maestra: el frontmatter agrega `vacante` y `adaptada_en`; las experiencias no llevan `### Banco de logros`, solo los 3 a 5 bullets escogidos; el orden de habilidades sigue al anuncio.
 
-### Nombre del archivo
+### Carpeta y nombres de archivo
 
-`profile/adaptadas/<empresa>-<rol>.md`, donde `<empresa>` y `<rol>` pasan por la misma normalización que `nombreArchivoSeguro`: sin acentos, sin caracteres inválidos en Windows (`< > : " / \ | ? *`), espacios a guiones, guiones repetidos colapsados, máximo 80 caracteres. Ejemplos: `Lullabot-Senior-Drupal-Developer.md`, `Bluelight-Consulting-Tech-Lead-PHP.md`. `camello cv tailor` sugiere el nombre en `datos.salida`; úsalo.
+Cada vacante tiene su carpeta en `profile/adaptadas/<empresa>-<clave>-<rol>/`, en minúsculas y máximo 80 caracteres, donde `<clave>` es el último segmento del id de la vacante (`greenhouse:wikimedia:8158048` → `8158048`). Así dos vacantes de la misma empresa nunca se mezclan. Dentro:
+
+| Archivo | Nombre | Por qué |
+|---------|--------|---------|
+| Markdown adaptado | `<empresa>-cv.md` | Se distingue de otras vacantes abiertas en el editor. |
+| HTML | `<empresa>-cv.html` | Igual. |
+| PDF de la hoja de vida | `MiguelArbelaez_CV.pdf` | Es lo único que sale de la máquina. Un nombre con empresa y rol delata que se fabricó para el anuncio. |
+| Carta de presentación | `<empresa>-carta.md` | Solo si el formulario la exige o el usuario la pide. |
+| PDF de la carta | `MiguelArbelaez_CoverLetter.pdf` | Mismo motivo que el CV. |
+| Preparación de entrevista | `<empresa>-entrevista.md` | Preguntas y respuestas para la llamada, ver `entrevista.md`. Nunca se envía. |
+
+El nombre del candidato sale del frontmatter (`nombre`), sin acentos ni espacios. La plantilla `{nombre}_{tipo}` se cambia en `config.json` → `cv.nombre_pdf`. `camello cv tailor` devuelve todas las rutas en `datos.archivos`; `camello cv render` pone el PDF con el nombre neutro junto al Markdown. Los archivos planos `<empresa>-<rol>.md` del formato anterior siguen funcionando como respaldo en `apply`, pero no crees nuevos.
 
 ## Ejemplos de logro
 

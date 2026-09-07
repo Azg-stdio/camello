@@ -7,7 +7,7 @@ Que el agente genere, a partir de la hoja de vida maestra (`profile/cv.md`) y de
 ## Flujo
 
 1. `camello cv tailor <id>` imprime en JSON: la vacante (texto), el juicio (fortalezas, brechas, palabras clave del anuncio) y la ruta de `profile/cv.md`.
-2. El agente aplica las reglas de `skill/cv.md` y escribe `profile/adaptadas/<empresa>-<rol>.md`.
+2. El agente aplica las reglas de `skill/cv.md` y escribe el Markdown en la carpeta de la vacante, `profile/adaptadas/<empresa>-<clave>-<rol>/<empresa>-cv.md`. `cv render` deja el PDF al lado como `<Nombre>_CV.pdf`, sin empresa ni rol.
 3. `camello cv render <archivo.md>` lo convierte a HTML con estilo de impresión (`src/cv/plantilla.html`) y lo abre. El usuario imprime a PDF con Ctrl+P. Un solo formato de salida en Etapa 0.
 4. `camello cv diff <archivo.md>` muestra qué logros se escogieron, qué se reordenó y qué palabras clave se cubrieron, para revisar en un minuto.
 5. Al marcar `aplicada` (tarea 09) se guarda qué archivo adaptado se usó.
