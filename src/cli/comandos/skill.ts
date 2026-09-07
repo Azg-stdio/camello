@@ -16,7 +16,7 @@ const comando: Comando = {
     ctx.linea(t("skill.instrucciones", { origen: dir, destino: ".claude/skills/camello/" }));
     ctx.linea("");
     ctx.linea(t("skill.archivos"));
-    for (const a of ["SKILL.md", "juicio.md", "cv.md", "en/SKILL.md"]) ctx.linea(`  - ${enRaiz("skill", a)}`);
+    for (const a of ["SKILL.md", "juicio.md", "cv.md", "aplicar.md", "en/SKILL.md"]) ctx.linea(`  - ${enRaiz("skill", a)}`);
     ctx.siguiente("camello refresh");
     return ctx.terminar({ directorio: dir, skill: skillMd, version: version(), destino_sugerido: ".claude/skills/camello/" });
   },

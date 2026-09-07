@@ -47,7 +47,8 @@ Estados del pipeline: `vista → preseleccionada → aplicada → entrevista →
 | "Mira esta vacante: <url>" | `camello judge <url>` → `camello show <id> --completa` → juzgar → `camello judge <id> --from -` |
 | "Muéstrame la vacante X" | `camello show <id>` |
 | "Prepara mi hoja de vida para X" | `camello cv tailor <id> --json` → adaptar (ver abajo) → `camello cv diff` → confirmar → `camello cv render` |
-| "Ya apliqué a X" | `camello status <id> aplicada --cv <archivo adaptado>` |
+| "Aplica a X" | `camello apply <id> --json` → llenar el formulario en el navegador siguiendo `aplicar.md` → parar antes de enviar → reporte al usuario |
+| "Ya apliqué a X" | `camello status <id> aplicada --cv <archivo.pdf>` |
 | "Me llamaron a entrevista / me rechazaron / descarta esa" | `camello status <id> entrevista\|rechazada\|descartada --nota "..."` |
 | "Muéstrame el tablero" | `camello dashboard` |
 | "Actualiza Obsidian" | `camello obsidian sync` (y `--pull` si el usuario editó estados allá) |
@@ -79,7 +80,7 @@ Reglas completas en [`cv.md`](cv.md). Resumen:
 2. Lee `profile/cv.md` (la maestra con banco de logros). **Selecciona, no inventes.** Ninguna habilidad ni logro que no esté en la maestra puede aparecer.
 3. Escribe `profile/adaptadas/<empresa>-<rol>.md` con el mismo formato de la maestra, 3 a 5 logros por experiencia, habilidades reordenadas según el anuncio, máximo 2 páginas, en el idioma de la vacante.
 4. `camello cv diff <archivo.md>`: muestra al usuario qué logros escogiste, qué palabras clave cubriste y qué frases no aparecen en la maestra. **Espera confirmación** antes de dar la versión por lista.
-5. `camello cv render <archivo.md>` genera el HTML imprimible y lo abre. El usuario imprime a PDF con Ctrl+P.
+5. `camello cv render <archivo.md>` genera el HTML y el PDF (con el Chrome o Edge instalado) y abre el PDF. Sin navegador, el usuario imprime desde el HTML con Ctrl+P.
 6. Al aplicar: `camello status <id> aplicada --cv <archivo.md>`.
 
 ## Cómo reportar
@@ -92,7 +93,7 @@ Reglas completas en [`cv.md`](cv.md). Resumen:
 
 ## Qué no hace
 
-- **No aplica** a vacantes ni llena formularios.
+- **No envía aplicaciones.** Con `camello apply <id>` y control del navegador (`claude --chrome`) llena el formulario siguiendo `aplicar.md`, y se detiene antes del botón de enviar. Ese clic es del usuario.
 - **No envía** correos ni mensajes.
 - **No toca LinkedIn** ni hace scraping de ningún sitio sin feed público. `camello judge <url>` es para una vacante que el usuario pegó a mano.
 - **No sube el perfil** ni la hoja de vida a ningún servicio. Todo vive en `profile/` y `data/`, ignorados por git.

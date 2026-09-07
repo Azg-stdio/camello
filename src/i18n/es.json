@@ -293,5 +293,15 @@
   "dashboard.bajo_minimo": "bajo tu mínimo",
   "dashboard.filtro_bajo_minimo": "ocultar por debajo del mínimo",
   "dashboard.minimo_nota": "tu mínimo: {min}/mes",
-  "shortlist.bajo_minimo": "(< mínimo)"
+  "shortlist.bajo_minimo": "(< mínimo)",
+  "cv.pdf_listo": "PDF listo: {ruta}",
+  "cv.pdf_sin_navegador": "No encontré Chrome ni Edge para generar el PDF. Abre el HTML e imprime con Ctrl+P, o define CAMELLO_NAVEGADOR con la ruta del ejecutable.",
+  "cv.pdf_fallo": "El navegador no pudo generar el PDF ({error}). Abre el HTML e imprime con Ctrl+P.",
+  "apply.descripcion": "Arma el paquete para que tu agente llene el formulario de aplicación (nunca lo envía)",
+  "apply.titulo": "Aplicar a {empresa} · {titulo}",
+  "apply.sin_cv": "no hay hoja de vida adaptada para esta empresa",
+  "apply.sugerir_render": "  Falta el PDF. Corre `camello cv tailor {id}` con tu agente y luego `camello cv render <archivo.md>`.",
+  "apply.faltan_datos": "  Faltan en el frontmatter de profile/cv.md: {campos}",
+  "apply.ya_en_estado": "  Esta vacante ya está en estado '{estado}'.",
+  "apply.instruccion": "Agente: sigue {skill}. Llena el formulario en el navegador del usuario (Claude Code: `claude --chrome`) y detente antes de enviar. Datos completos con `--json`."
 }

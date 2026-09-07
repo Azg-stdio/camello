@@ -15,8 +15,8 @@ Generas, a partir de la hoja de vida maestra (`profile/cv.md`) y del juicio de u
 3. Escribe la adaptada en `profile/adaptadas/<empresa>-<rol>.md` (formato abajo).
 4. `camello cv diff <archivo.md>`. Muestra al usuario el resultado: logros escogidos por experiencia, palabras clave cubiertas y no cubiertas, y **frases de la adaptada que no aparecen en la maestra**. Esa última lista debe estar vacía o contener solo reordenamientos evidentes. Si hay una afirmación nueva, quítala.
 5. **Espera confirmación explícita** del usuario. No des la versión por lista sin ella.
-6. `camello cv render <archivo.md>` genera el HTML con estilo de impresión (carta y A4) y lo abre. El usuario imprime a PDF con Ctrl+P.
-7. Cuando el usuario aplique: `camello status <id> aplicada --cv <archivo.md>`.
+6. `camello cv render <archivo.md>` genera el HTML con estilo de impresión (carta, o A4 con `--a4`) y el PDF junto a él, usando el Chrome o Edge instalado. Abre el PDF. Si no hay navegador, avisa y el usuario imprime desde el HTML con Ctrl+P.
+7. Para aplicar con el formulario lleno por ti, sigue `skill/aplicar.md` (`camello apply <id>`). Cuando el usuario envíe: `camello status <id> aplicada --cv <archivo.pdf>`.
 
 ## Reglas
 

@@ -23,6 +23,7 @@ Meta medible: encuentro una vacante a la que aplico y que no había visto en otr
 | 12 | Refresco programado | [tareas/12-refresco-programado.md](tareas/12-refresco-programado.md) | hecha (falta dejar la tarea instalada 6 h) |
 | 13 | Adaptar la hoja de vida a la vacante | [tareas/13-adaptar-cv.md](tareas/13-adaptar-cv.md) | hecha (falta usarla en una aplicación real) |
 | 14 | Internacionalización (es / en) | [tareas/14-i18n.md](tareas/14-i18n.md) | hecha |
+| 15 | Aplicar con el agente en el navegador | [tareas/15-aplicar.md](tareas/15-aplicar.md) | hecha el 2026-09-07 (falta probar con `claude --chrome` en un formulario real) |
 
 Orden sugerido: 00 → 01 → 02 → 03 → 05 → 06 → 07 → 08 → 13 → 09 → 10 → 11 → 12 → 04 → 14. La 14 se aplica desde el principio (todas las cadenas pasan por `t()`), pero la traducción al inglés se completa al final.
 

@@ -293,5 +293,15 @@
   "dashboard.bajo_minimo": "below your minimum",
   "dashboard.filtro_bajo_minimo": "hide below minimum",
   "dashboard.minimo_nota": "your minimum: {min}/month",
-  "shortlist.bajo_minimo": "(< minimum)"
+  "shortlist.bajo_minimo": "(< minimum)",
+  "cv.pdf_listo": "PDF ready: {ruta}",
+  "cv.pdf_sin_navegador": "Could not find Chrome or Edge to generate the PDF. Open the HTML and print with Ctrl+P, or set CAMELLO_NAVEGADOR to the executable path.",
+  "cv.pdf_fallo": "The browser could not generate the PDF ({error}). Open the HTML and print with Ctrl+P.",
+  "apply.descripcion": "Builds the packet so your agent fills the application form (it never submits)",
+  "apply.titulo": "Apply to {empresa} · {titulo}",
+  "apply.sin_cv": "no tailored resume for this company",
+  "apply.sugerir_render": "  PDF missing. Run `camello cv tailor {id}` with your agent, then `camello cv render <file.md>`.",
+  "apply.faltan_datos": "  Missing in the profile/cv.md frontmatter: {campos}",
+  "apply.ya_en_estado": "  This posting is already in status '{estado}'.",
+  "apply.instruccion": "Agent: follow {skill}. Fill the form in the user's browser (Claude Code: `claude --chrome`) and stop before submitting. Full data with `--json`."
 }

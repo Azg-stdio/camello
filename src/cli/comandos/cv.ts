@@ -5,6 +5,7 @@ import { leerPerfil, nombreArchivoSeguro, rutaAdaptadas } from "../../perfil/ind
 import { enRaiz } from "../../rutas.js";
 import { diffCv, palabrasClave } from "../../cv/analisis.js";
 import { escribirHtml, renderizarCv } from "../../cv/render.js";
+import { htmlAPdf } from "../../cv/pdf.js";
 import { fraccion, numero, t } from "../../i18n/index.js";
 import { recortar, type Comando, type Contexto } from "../comun.js";
 
@@ -24,9 +25,9 @@ export function abrir(ruta: string): void {
 const comando: Comando = {
   nombre: "cv",
   descripcion: "cv.descripcion",
-  uso: "camello cv tailor <id> | render <archivo.md> [--a4] [--no-open] | diff <archivo.md> [--id <id>]",
+  uso: "camello cv tailor <id> | render <archivo.md> [--a4] [--no-pdf] [--no-open] | diff <archivo.md> [--id <id>]",
   async ejecutar(ctx: Contexto): Promise<number> {
-    const { values, positionals } = ctx.parse({ a4: { type: "boolean" }, "no-open": { type: "boolean" }, out: { type: "string" }, id: { type: "string" } });
+    const { values, positionals } = ctx.parse({ a4: { type: "boolean" }, "no-open": { type: "boolean" }, "no-pdf": { type: "boolean" }, out: { type: "string" }, id: { type: "string" } });
     const sub = positionals[0];
 
     if (sub === "tailor") {
@@ -77,9 +78,20 @@ const comando: Comando = {
       const salida = values.out ? resolve(values.out) : ruta.replace(/\.md$/i, "") + ".html";
       escribirHtml(salida, html);
       ctx.linea(t("cv.render_listo", { ruta: salida }));
-      if (!values["no-open"]) abrir(salida);
+      let pdf: string | null = null;
+      if (!values["no-pdf"]) {
+        const rutaPdf = salida.replace(/\.html?$/i, "") + ".pdf";
+        const r = htmlAPdf(salida, rutaPdf);
+        if (r.ok) {
+          pdf = rutaPdf;
+          ctx.linea(t("cv.pdf_listo", { ruta: rutaPdf }));
+        } else {
+          ctx.linea(t(r.navegador ? "cv.pdf_fallo" : "cv.pdf_sin_navegador", { error: r.error ?? "" }));
+        }
+      }
+      if (!values["no-open"]) abrir(pdf ?? salida);
       ctx.siguiente(`camello cv diff ${ruta}`);
-      return ctx.terminar({ entrada: ruta, salida });
+      return ctx.terminar({ entrada: ruta, salida, pdf });
     }
 
     if (sub === "diff") {

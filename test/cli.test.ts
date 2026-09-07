@@ -76,6 +76,15 @@ test("judge rechaza un JSON inválido con el campo y el motivo", () => {
   assert.match(stderr, /elegibilidad/);
 });
 
+test("apply --json arma el paquete y reporta que falta la hoja de vida adaptada", () => {
+  const r = JSON.parse(camello("apply", "greenhouse:ejemplo:1234567", "--json")) as { ok: boolean; cobertura: { ok: number; total: number }; datos: { vacante: { url: string }; cv: { pdf: string | null }; reglas: string; al_terminar: string } };
+  assert.equal(r.ok, true);
+  assert.equal(r.datos.vacante.url, "https://example.com/1");
+  assert.match(r.datos.reglas, /aplicar\.md$/);
+  assert.match(r.datos.al_terminar, /camello status greenhouse:ejemplo:1234567 aplicada/);
+  assert.equal(r.cobertura.total, 1);
+});
+
 test("dashboard --no-open genera el HTML con el logo y sin datos del perfil", () => {
   const out = join(dir, "dash.html");
   camello("dashboard", "--no-open", "--out", out);

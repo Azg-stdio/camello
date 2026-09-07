@@ -26,6 +26,7 @@ const REGISTRO: Record<string, () => Promise<{ default: Comando }>> = {
   shortlist: () => import("./comandos/shortlist.js"),
   status: () => import("./comandos/status.js"),
   cv: () => import("./comandos/cv.js"),
+  apply: () => import("./comandos/apply.js"),
   dashboard: () => import("./comandos/dashboard.js"),
   obsidian: () => import("./comandos/obsidian.js"),
   schedule: () => import("./comandos/schedule.js"),
@@ -33,7 +34,7 @@ const REGISTRO: Record<string, () => Promise<{ default: Comando }>> = {
   skill: () => import("./comandos/skill.js"),
 };
 
-export const ORDEN_AYUDA = ["init", "profile", "sources", "refresh", "search", "show", "pending", "judge", "shortlist", "status", "cv", "dashboard", "obsidian", "schedule", "stats", "skill"];
+export const ORDEN_AYUDA = ["init", "profile", "sources", "refresh", "search", "show", "pending", "judge", "shortlist", "status", "cv", "apply", "dashboard", "obsidian", "schedule", "stats", "skill"];
 
 export function version(): string {
   try {

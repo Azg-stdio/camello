@@ -46,6 +46,7 @@ Con agente. Copia la carpeta `skill/` a `.claude/skills/camello/` (Claude Code) 
 | "importa mi hoja de vida desde CV.pdf" | Lee el PDF y escribe `profile/cv.md` con un banco de logros por empleo. |
 | "busca trabajo nuevo" | Corre `refresh`, juzga las pendientes siguiendo [skill/juicio.md](skill/juicio.md) y muestra el shortlist. |
 | "prepara mi hoja de vida para Wikimedia" | Adapta el CV siguiendo [skill/cv.md](skill/cv.md), muestra qué logros escogió, verifica que no agregó nada y deja el HTML listo para imprimir a PDF. |
+| "aplica a Wikimedia" | Con `claude --chrome`, abre el anuncio, llena el formulario con tus datos y el PDF adaptado, y se detiene antes de enviar para que revises ([skill/aplicar.md](skill/aplicar.md)). |
 | "ya apliqué a esa" | Mueve la vacante en el pipeline. |
 
 El agente juzga 20 vacantes por corrida, empezando por las que mencionan tu stack. El límite y las prioridades están en `config.json`.
@@ -72,7 +73,8 @@ Muestra cobertura (cuántas de las juzgadas están abiertas para ti), shortlist 
 | `camello judge <id\|url> --from <json>` | Guarda un juicio validado. Con una URL, primero descarga la vacante. |
 | `camello shortlist` | Vacantes con veredicto aplicar o considerar, por puntaje. |
 | `camello status <id> <estado>` | Estados `preseleccionada`, `aplicada`, `entrevista`, `oferta`, `rechazada`, `descartada`. |
-| `camello cv tailor\|diff\|render` | Datos para adaptar, verificación contra la maestra, HTML imprimible. |
+| `camello cv tailor\|diff\|render` | Datos para adaptar, verificación contra la maestra, HTML y PDF (con el Chrome o Edge instalado). |
+| `camello apply <id>` | Paquete para que el agente llene el formulario de aplicación. Nunca envía. |
 | `camello dashboard` | Genera y abre el tablero. En Windows también `dashboard.cmd`. |
 | `camello obsidian sync [--pull]` | Notas Markdown en tu vault de Obsidian. |
 | `camello schedule install --every 6h` | Descarga automática con el programador del sistema. Sin agente. |

@@ -47,7 +47,8 @@ Pipeline states: `vista → preseleccionada → aplicada → entrevista → ofer
 | "Look at this posting: <url>" | `camello judge <url>` → `camello show <id> --completa` → judge → `camello judge <id> --from -` |
 | "Show me posting X" | `camello show <id>` |
 | "Prepare my resume for X" | `camello cv tailor <id> --json` → tailor (see below) → `camello cv diff` → confirm → `camello cv render` |
-| "I applied to X" | `camello status <id> aplicada --cv <tailored file>` |
+| "Apply to X" | `camello apply <id> --json` → fill the form in the browser following `../aplicar.md` → stop before submitting → report to the user |
+| "I applied to X" | `camello status <id> aplicada --cv <file.pdf>` |
 | "They called me for an interview / rejected me / discard that one" | `camello status <id> entrevista\|rechazada\|descartada --nota "..."` |
 | "Show me the board" | `camello dashboard` |
 | "Update Obsidian" | `camello obsidian sync` (and `--pull` if the user edited states there) |
@@ -79,7 +80,7 @@ Full rules in [`../cv.md`](../cv.md). Summary:
 2. Read `profile/cv.md` (the master with the achievement bank). **Select, never invent.** No skill or achievement absent from the master may appear.
 3. Write `profile/adaptadas/<empresa>-<rol>.md` in the master's format, 3 to 5 achievements per role, skills reordered to match the ad, max 2 pages, in the posting's language.
 4. `camello cv diff <file.md>`: show the user which achievements you picked, which keywords are covered and which sentences do not appear in the master. **Wait for confirmation** before calling it done.
-5. `camello cv render <file.md>` generates the printable HTML and opens it. The user prints to PDF with Ctrl+P.
+5. `camello cv render <file.md>` generates the HTML and the PDF (using the installed Chrome or Edge) and opens the PDF. Without a browser, the user prints from the HTML with Ctrl+P.
 6. When applying: `camello status <id> aplicada --cv <file.md>`.
 
 ## How to report
@@ -92,7 +93,7 @@ Full rules in [`../cv.md`](../cv.md). Summary:
 
 ## What it does not do
 
-- **Does not apply** to postings or fill forms.
+- **Does not submit applications.** With `camello apply <id>` and browser control (`claude --chrome`) it fills the form following `../aplicar.md` and stops before the submit button. That click belongs to the user.
 - **Does not send** emails or messages.
 - **Does not touch LinkedIn** or scrape any site without a public feed. `camello judge <url>` is for a posting the user pasted by hand.
 - **Does not upload the profile** or resume anywhere. Everything lives in `profile/` and `data/`, ignored by git.
