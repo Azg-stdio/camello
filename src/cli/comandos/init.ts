@@ -14,6 +14,8 @@ interface Respuestas {
   email: string;
   linkedin: string;
   github: string;
+  /** Nivel de inglés en escala CEFR (A2 a C2). Casi todo formulario lo pregunta y el agente no debe adivinarlo. */
+  ingles: string;
   salario: number;
   contrato: string;
   zona: string;
@@ -25,7 +27,15 @@ interface Respuestas {
   vault: string;
 }
 
-const TOTAL_PASOS = 12;
+const TOTAL_PASOS = 13;
+
+const NIVELES_CEFR = ["A1", "A2", "B1", "B2", "C1", "C2"];
+
+function nivelCefr(s: string, defecto = "B2"): string {
+  const m = /\b([abc][12])\b/i.exec(s);
+  const n = m ? m[1]!.toUpperCase() : "";
+  return NIVELES_CEFR.includes(n) ? n : defecto;
+}
 
 function leerJson(ruta: string): Record<string, unknown> {
   try {
@@ -66,7 +76,7 @@ function preferenciasMd(r: Respuestas): string {
     r.zona,
     "",
     "## Idioma de trabajo",
-    t("init.pref_idioma_defecto"),
+    t("init.pref_idioma", { nivel: r.ingles }),
     "",
     "## Empresas o sectores a evitar",
     r.evitar,
@@ -76,7 +86,7 @@ function preferenciasMd(r: Respuestas): string {
 
 function cvDesdePlantilla(r: Respuestas): string {
   const plantilla = readFileSync(enRaiz("docs", "ejemplos", "cv.ejemplo.md"), "utf8");
-  const campos: Record<string, string> = { nombre: r.nombre, ciudad: r.ciudad, email: r.email, linkedin: r.linkedin, github: r.github };
+  const campos: Record<string, string> = { nombre: r.nombre, ciudad: r.ciudad, email: r.email, linkedin: r.linkedin, github: r.github, idiomas: `{ es: nativo, en: ${r.ingles} }` };
   return plantilla.replace(/^---\n([\s\S]*?)\n---/, (_, front: string) => {
     const lineas = front.split("\n").map((l) => {
       const k = l.split(":")[0]!.trim();
@@ -138,6 +148,7 @@ async function asistente(ctx: Contexto): Promise<Respuestas> {
     const email = await preguntar("init.p_email", "");
     const linkedin = await preguntar("init.p_linkedin", "");
     const github = await preguntar("init.p_github", "");
+    const ingles = nivelCefr(await preguntar("init.p_ingles", "B2"));
     const salario = parsearMonto(await preguntar("init.p_salario", "4000"), 4000);
     const opcion = await preguntar("init.p_contrato", "1");
     const contrato = t(opcion.startsWith("2") ? "init.c_eor" : opcion.startsWith("3") ? "init.c_local" : opcion.startsWith("4") ? "init.c_cualquiera" : "init.c_contratista");
@@ -148,7 +159,7 @@ async function asistente(ctx: Contexto): Promise<Respuestas> {
     // Dos preguntas opcionales fuera del conteo: archivo de hoja de vida y vault.
     const cv = await rl.pregunta(`${t("init.p_cv")}: `);
     const vault = await rl.pregunta(`${t("init.p_vault")}: `);
-    return { lang, nombre, ciudad, email, linkedin, github, salario, contrato, zona, roles_si, roles_no, stack, evitar: t("init.d_evitar"), cv, vault };
+    return { lang, nombre, ciudad, email, linkedin, github, ingles, salario, contrato, zona, roles_si, roles_no, stack, evitar: t("init.d_evitar"), cv, vault };
   }
 }
 

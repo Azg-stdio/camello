@@ -329,7 +329,7 @@
     var lista = D.pipeline[e] || [];
     return '<div class="col"><h3>' + esc(tx("estado." + e)) + "<span>" + num(lista.length) + "</span></h3>" +
       (lista.length ? lista.map(function (v) {
-        return '<div class="ficha' + (v.desaparecida_en ? " alerta" : "") + '"><div class="e">' + esc(v.empresa) + '</div><div>' + esc(v.titulo) + '</div><div class="f">' + esc(fecha(v.actualizada_en)) + (v.desaparecida_en ? " · " + esc(tx("dashboard.desaparecida")) : "") + "</div></div>";
+        return '<div class="ficha' + (v.desaparecida_en || v.seguimiento ? " alerta" : "") + '"><div class="e">' + esc(v.empresa) + '</div><div>' + esc(v.titulo) + '</div><div class="f">' + esc(fecha(v.actualizada_en)) + (v.desaparecida_en ? " · " + esc(tx("dashboard.desaparecida")) : "") + (v.seguimiento ? " · " + esc(tx("dashboard.seguimiento")) : "") + "</div></div>";
       }).join("") : '<div class="vacio">' + esc(tx("dashboard.columna_vacia")) + "</div>") + "</div>";
   }).join("");
 

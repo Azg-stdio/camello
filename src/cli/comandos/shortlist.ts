@@ -29,10 +29,10 @@ const comando: Comando = {
         ),
       );
     }
-    const quietas = db.sinNovedad(14);
+    const quietas = db.sinNovedad(7);
     if (quietas.length) {
       ctx.linea("");
-      ctx.linea(tn("shortlist.sin_novedad", quietas.length, { dias: 14 }));
+      ctx.linea(tn("shortlist.sin_novedad", quietas.length, { dias: 7 }));
       for (const q of quietas) ctx.linea(`  - ${q.empresa} · ${recortar(q.titulo, 40)} (${t(`estado.${q.estado}`)}, ${fecha(q.actualizada_en)}) ${q.id}`);
     }
     ctx.siguiente(filas.length ? `camello cv tailor ${filas[0]!.id}` : "camello pending");

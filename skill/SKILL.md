@@ -33,6 +33,7 @@ Todos aceptan los flags globales `--json`, `--lang es|en`, `--db <ruta>`, `--qui
 | `camello obsidian sync [--pull]` | Escribe notas al vault; `--pull` lee cambios de estado hechos en Obsidian. |
 | `camello schedule install --every 6h\|remove\|status` | Refresco programado (solo ingesta, sin LLM). |
 | `camello stats` | Resumen de vacantes, juicios, pipeline y última corrida. |
+| `camello next` | Qué sigue en toda la búsqueda: por juzgar, CV por adaptar o renderizar, formularios por llenar, aplicaciones sin respuesta hace más de 7 días, entrevistas en curso. Cada línea con su comando. |
 | `camello skill` | Ruta de este skill e instrucciones de instalación. |
 
 Estados del pipeline: `vista → preseleccionada → aplicada → entrevista → oferta`, con salidas `descartada` y `rechazada`.
@@ -55,6 +56,8 @@ Estados del pipeline: `vista → preseleccionada → aplicada → entrevista →
 | "Muéstrame el tablero" | `camello dashboard` |
 | "Actualiza Obsidian" | `camello obsidian sync` (y `--pull` si el usuario editó estados allá) |
 | "Refresca cada 6 horas" | `camello schedule install --every 6h` (ver advertencia abajo) |
+| "Qué sigue", "qué tengo pendiente" | `camello next` y ejecuta el primer paso si el usuario dice que sí |
+| "Me llamaron de X, preguntaron por..." | Escribir `<empresa>-llamada.md` siguiendo `entrevista.md` → `camello status <id> entrevista --nota "..."` si pasó de fase |
 | "Cómo va la búsqueda" | `camello stats` |
 | "Revisa mi perfil" | `camello profile check` |
 | "Importa mi hoja de vida" | `camello profile import <archivo>` y sigue sus instrucciones: lee el archivo tú, escribe `profile/cv.md` con la plantilla. |

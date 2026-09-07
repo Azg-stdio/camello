@@ -37,6 +37,8 @@ export interface FichaPipeline {
   estado: Estado;
   actualizada_en: string;
   desaparecida_en: string | null;
+  /** Aplicada o en entrevista sin novedad hace más de una semana. */
+  seguimiento?: boolean;
 }
 
 export interface DatosDashboard {
@@ -127,6 +129,7 @@ const CLAVES_TEXTOS = [
   "dashboard.shortlist_vacio",
   "dashboard.mostrando",
   "dashboard.h_pipeline",
+  "dashboard.seguimiento",
   "dashboard.columna_vacia",
   "dashboard.desaparecida",
   "dashboard.h_nuevas",
@@ -161,6 +164,7 @@ export function recogerDatos(db: Db, config: Config, lang: Lang): DatosDashboard
   });
 
   const pipeline: Record<string, FichaPipeline[]> = {};
+  const limiteSeguimiento = Date.now() - 7 * 86400000;
   for (const f of db.porEstado()) {
     (pipeline[f.estado] ??= []).push({
       id: f.id,
@@ -170,6 +174,7 @@ export function recogerDatos(db: Db, config: Config, lang: Lang): DatosDashboard
       estado: f.estado,
       actualizada_en: f.actualizada_en,
       desaparecida_en: f.desaparecida_en,
+      seguimiento: (f.estado === "aplicada" || f.estado === "entrevista") && Date.parse(f.actualizada_en) < limiteSeguimiento,
     });
   }
 

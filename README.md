@@ -77,6 +77,7 @@ Muestra cobertura (cuántas de las juzgadas están abiertas para ti), shortlist 
 | `camello status <id> <estado>` | Estados `preseleccionada`, `aplicada`, `entrevista`, `oferta`, `rechazada`, `descartada`. |
 | `camello cv tailor\|diff\|render` | Datos para adaptar, verificación contra la maestra, HTML y PDF (con el Chrome o Edge instalado). |
 | `camello apply <id>` | Paquete para que el agente llene el formulario de aplicación. Nunca envía. |
+| `camello next` | Qué sigue en toda la búsqueda: CV por adaptar, formularios por llenar, aplicaciones sin respuesta hace más de una semana y entrevistas en curso, cada una con su comando. |
 | `camello dashboard` | Genera y abre el tablero. En Windows también `dashboard.cmd`. |
 | `camello obsidian sync [--pull]` | Notas Markdown en tu vault de Obsidian. |
 | `camello schedule install --every 6h` | Descarga automática con el programador del sistema. Sin agente. |

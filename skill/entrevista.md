@@ -28,6 +28,12 @@ Escribes `<empresa>-entrevista.md` en la carpeta de la vacante: preguntas probab
 9. **Preguntas para hacerles.** De 4 a 6, específicas del anuncio (equipo, stack, proceso, contrato, siguiente paso). Nunca genéricas.
 10. **Datos rápidos arriba.** Cinco líneas con lo que hay que tener presente antes de contestar el teléfono.
 
+## Después de la llamada
+
+Cuando el usuario cuente cómo le fue ("me llamaron de X, preguntaron por..."), escribe `<empresa>-llamada.md` en la carpeta de la vacante (la ruta la da `camello apply <id> --json` en `cv.llamada`) con fecha, quién llamó (IA, reclutador, líder técnico), las preguntas que hicieron de verdad, qué respondió bien, dónde se trabó, y el siguiente paso que le dijeron. Si hay una segunda llamada, agrega otra sección con fecha, no sobrescribas. Luego, si toca, `camello status <id> entrevista --nota "..."`.
+
+Antes de escribir una preparación nueva, lee todos los `*-llamada.md` que existan en `profile/adaptadas/`. Las preguntas que ya hicieron en llamadas reales van primero en la sección "Likely questions", marcadas con "(asked before at <empresa>)". Así cada llamada mejora la siguiente.
+
 ## Formato
 
 ```markdown

@@ -14,9 +14,11 @@ export interface CvAdaptado {
   carta_pdf: string | null;
   /** Preparación de la llamada de filtro o entrevista, si el agente ya la escribió. */
   entrevista: string | null;
+  /** Notas de las llamadas que ya pasaron, si el usuario las registró. */
+  llamada: string | null;
 }
 
-const VACIO: CvAdaptado = { carpeta: null, md: null, html: null, pdf: null, carta: null, carta_pdf: null, entrevista: null };
+const VACIO: CvAdaptado = { carpeta: null, md: null, html: null, pdf: null, carta: null, carta_pdf: null, entrevista: null, llamada: null };
 
 function masReciente(dir: string, filtro: (nombre: string) => boolean): string | null {
   if (!existsSync(dir)) return null;
@@ -41,7 +43,8 @@ export function adaptadaPara(v: VacanteNombre, base = rutaAdaptadas()): CvAdapta
   if (carpeta) {
     const esCarta = (f: string) => /carta|coverletter|cover-letter/.test(f);
     const esEntrevista = (f: string) => /entrevista|interview/.test(f);
-    const esCv = (f: string) => !esCarta(f) && !esEntrevista(f);
+    const esLlamada = (f: string) => /llamada|call/.test(f);
+    const esCv = (f: string) => !esCarta(f) && !esEntrevista(f) && !esLlamada(f);
     return {
       carpeta,
       md: masReciente(carpeta, (f) => f.endsWith(".md") && esCv(f)),
@@ -50,10 +53,11 @@ export function adaptadaPara(v: VacanteNombre, base = rutaAdaptadas()): CvAdapta
       carta: masReciente(carpeta, (f) => f.endsWith(".md") && esCarta(f)),
       carta_pdf: masReciente(carpeta, (f) => f.endsWith(".pdf") && esCarta(f)),
       entrevista: masReciente(carpeta, (f) => f.endsWith(".md") && esEntrevista(f)),
+      llamada: masReciente(carpeta, (f) => f.endsWith(".md") && esLlamada(f)),
     };
   }
-  const plano = (ext: string, carta: boolean) => masReciente(base, (f) => f.startsWith(empresa) && f.endsWith(ext) && /carta/.test(f) === carta && !/entrevista/.test(f));
-  return { carpeta: null, md: plano(".md", false), html: plano(".html", false), pdf: plano(".pdf", false), carta: plano(".md", true), carta_pdf: plano(".pdf", true), entrevista: null };
+  const plano = (ext: string, carta: boolean) => masReciente(base, (f) => f.startsWith(empresa) && f.endsWith(ext) && /carta/.test(f) === carta && !/entrevista|llamada/.test(f));
+  return { carpeta: null, md: plano(".md", false), html: plano(".html", false), pdf: plano(".pdf", false), carta: plano(".md", true), carta_pdf: plano(".pdf", true), entrevista: null, llamada: null };
 }
 
 const comando: Comando = {

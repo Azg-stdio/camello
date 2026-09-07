@@ -17,7 +17,7 @@ function camello(...args: string[]): string {
 
 test("camello --help lista los comandos", () => {
   const salida = camello("--help");
-  for (const c of ["init", "refresh", "pending", "judge", "shortlist", "cv", "dashboard", "obsidian", "schedule", "stats"]) assert.match(salida, new RegExp(`camello ${c}`));
+  for (const c of ["init", "refresh", "pending", "judge", "shortlist", "cv", "dashboard", "obsidian", "schedule", "stats", "next"]) assert.match(salida, new RegExp(`camello ${c}`));
 });
 
 test("camello stats --json sobre base vacía devuelve el sobre estándar", () => {
@@ -92,4 +92,14 @@ test("dashboard --no-open genera el HTML con el logo y sin datos del perfil", ()
   assert.match(html, /<svg[^>]*aria-label="camello"/);
   assert.match(html, /greenhouse:ejemplo:1234567/);
   assert.ok(!/Banco de logros/.test(html));
+});
+
+test("next resume qué sigue y sugiere el comando de la vacante más avanzada", () => {
+  const r = JSON.parse(camello("next", "--json")) as { ok: boolean; datos: { pendientes: number; pasos: { accion: string; comando: string }[]; resumen: Record<string, number> } };
+  assert.equal(r.ok, true);
+  assert.ok(typeof r.datos.pendientes === "number");
+  assert.ok(Array.isArray(r.datos.pasos));
+  assert.ok("adaptar" in r.datos.resumen && "seguimiento" in r.datos.resumen);
+  const texto = camello("next");
+  assert.match(texto, /Siguiente:/);
 });

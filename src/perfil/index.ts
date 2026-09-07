@@ -177,6 +177,8 @@ export interface ArchivosAdaptada {
   carta_pdf: string;
   /** Preguntas y respuestas para la llamada de filtro o la entrevista, en el idioma de la vacante. */
   entrevista: string;
+  /** Notas de lo que preguntaron de verdad en cada llamada, para que la siguiente preparación aprenda. */
+  llamada: string;
 }
 
 /** Rutas de todos los archivos de una vacante adaptada. Los de trabajo llevan el prefijo de la empresa; los PDF, el nombre del candidato. */
@@ -192,5 +194,6 @@ export function archivosAdaptada(v: VacanteNombre, nombreCandidato: string, plan
     carta_html: join(carpeta, `${empresa}-carta.html`),
     carta_pdf: join(carpeta, nombrePdfCandidato(nombreCandidato, "CoverLetter", plantillaPdf)),
     entrevista: join(carpeta, `${empresa}-entrevista.md`),
+    llamada: join(carpeta, `${empresa}-llamada.md`),
   };
 }

@@ -31,10 +31,11 @@ const REGISTRO: Record<string, () => Promise<{ default: Comando }>> = {
   obsidian: () => import("./comandos/obsidian.js"),
   schedule: () => import("./comandos/schedule.js"),
   stats: () => import("./comandos/stats.js"),
+  next: () => import("./comandos/next.js"),
   skill: () => import("./comandos/skill.js"),
 };
 
-export const ORDEN_AYUDA = ["init", "profile", "sources", "refresh", "search", "show", "pending", "judge", "shortlist", "status", "cv", "apply", "dashboard", "obsidian", "schedule", "stats", "skill"];
+export const ORDEN_AYUDA = ["init", "profile", "sources", "refresh", "search", "show", "pending", "judge", "shortlist", "status", "cv", "apply", "next", "dashboard", "obsidian", "schedule", "stats", "skill"];
 
 export function version(): string {
   try {
