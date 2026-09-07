@@ -19,6 +19,7 @@ obsidian.local.json
 .env.*
 !.env.example
 config.local.*
+!config.local.example.json
 
 # --- Tooling ---
 node_modules/

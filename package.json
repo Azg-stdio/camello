@@ -1,0 +1,27 @@
+{
+  "name": "camello",
+  "version": "0.1.0",
+  "description": "Búsqueda de empleo local-first para desarrolladores en Colombia y LATAM, manejada por tu propio agente de código.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "camello": "dist/src/cli/camello.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test --test-reporter=spec \"dist/test/*.test.js\"",
+    "camello": "node dist/src/cli/camello.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azg-stdio/camello.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.7.0"
+  }
+}

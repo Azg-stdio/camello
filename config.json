@@ -1,0 +1,26 @@
+{
+  "lang": "es",
+  "db": "data/camello.db",
+  "sources": "sources/empresas.json",
+  "user_agent": "camello/0.1 (+https://github.com/Azg-stdio/camello)",
+  "juicio": {
+    "max_por_corrida": 20,
+    "prioridad": ["drupal", "php", "twig", "symfony", "vue", "frontend", "latam", "latin america", "colombia", "tech lead"]
+  },
+  "filtro_titulos_excluidos": [
+    "sales", "ventas", "account executive", "account manager", "recruiter", "recruiting", "talent",
+    "accounting", "contabilidad", "accountant", "finance", "financial", "payroll", "legal", "counsel",
+    "marketing", "customer success", "customer support", "support specialist", "hr ", "human resources",
+    "people ops", "office manager", "executive assistant", "business development", "partnerships",
+    "copywriter", "content writer", "social media", "community manager", "intern", "internship",
+    "nurse", "driver", "warehouse", "retail"
+  ],
+  "hn": {
+    "requiere": ["remote"],
+    "alguna_de": ["latam", "latin america", "americas", "colombia", "south america", "worldwide", "anywhere", "utc-5", "est", "cst", "pst", "global"]
+  },
+  "refresh": {
+    "cada": "6h"
+  },
+  "tasa_cop": 4100
+}

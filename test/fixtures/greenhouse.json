@@ -1,0 +1,94 @@
+{
+  "jobs": [
+    {
+      "absolute_url": "https://job-boards.greenhouse.io/acquia/jobs/7976489",
+      "internal_job_id": 3461927,
+      "location": {
+        "name": "New York, NY, United States"
+      },
+      "metadata": null,
+      "id": 7976489,
+      "updated_at": "2026-08-11T11:43:24-04:00",
+      "requisition_id": "2997",
+      "title": "Account Executive",
+      "company_name": "Acquia",
+      "first_published": "2026-06-15T11:00:05-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;p&gt;&lt;strong&gt;About Acquia&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Acquia empowers the world’s most ambitious brands to create digital customer experiences that matter. With open source Drupal at its core, the Acquia Digital Experience Platform (DXP) enables marketers, developers, and IT operations teams at thousands of global organizations to rapidly compose and deploy digital products and services that engage customers, enhance conversions, and help businesses stand out.&lt;/p&gt;\n&lt;p&gt;Headquartered in Boston, MA, Acquia is a Great Place to Work-CertifiedTM company, is listed as one of the world’s top software companies by The Software Report, and is positioned as a market leader by the analyst community. We are Acquia. We are building for the future and we want you to be a part of it!&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Career Exploration at Acquia&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;Our recruitment process is designed to empower you in making the most informed decisions. Acquia is committed to providing an inclusive, transparent, efficient, and educational interview experience that cultivates exploration into career opportunities at Acquia&lt;/p&gt;\n&lt;p&gt;You will discover the opportunity to grow your career here and learn from a global team that empowers you to exceed boundaries and achieve the extraordinary.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;As the Account Executive, you will...&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Identify new business ",
+      "departments": [
+        {
+          "id": 5364,
+          "name": "Sales",
+          "child_ids": [],
+          "parent_id": null
+        }
+      ],
+      "offices": [
+        {
+          "id": 3216,
+          "name": "Remote-United-States",
+          "location": null,
+          "child_ids": [
+            3208,
+            114569,
+            54533,
+            74690,
+            69020,
+            3212,
+            3207
+          ],
+          "parent_id": null
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": null
+    },
+    {
+      "absolute_url": "https://job-boards.greenhouse.io/acquia/jobs/8064592",
+      "internal_job_id": 3494554,
+      "location": {
+        "name": "Remote-United-States"
+      },
+      "metadata": null,
+      "id": 8064592,
+      "updated_at": "2026-08-11T11:43:24-04:00",
+      "requisition_id": "3022",
+      "title": "Enterprise Account Executive",
+      "company_name": "Acquia",
+      "first_published": "2026-07-20T15:53:41-04:00",
+      "language": "en",
+      "application_deadline": null,
+      "content": "&lt;p&gt;&lt;strong&gt;About Acquia&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Acquia empowers the world’s most ambitious brands to create digital customer experiences that matter. With open source Drupal at its core, the Acquia Digital Experience Platform (DXP) enables marketers, developers, and IT operations teams at thousands of global organizations to rapidly compose and deploy digital products and services that engage customers, enhance conversions, and help businesses stand out.&lt;/p&gt;\n&lt;p&gt;Headquartered in Boston, MA, Acquia is a Great Place to Work-CertifiedTM company, is listed as one of the world’s top software companies by The Software Report, and is positioned as a market leader by the analyst community. We are Acquia. We are building for the future and we want you to be a part of it!&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Career Exploration at Acquia&lt;/strong&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;Our recruitment process is designed to empower you in making the most informed decisions. Acquia is committed to providing an inclusive, transparent, efficient, and educational interview experience that cultivates exploration into career opportunities at Acquia&lt;/p&gt;\n&lt;p&gt;You will discover the opportunity to grow your career here and learn from a global team that empowers you to exceed boundaries and achieve the extraordinary.&lt;/p&gt;\n&lt;p&gt;The &lt;strong&gt;Enterprise Account Executive&lt;/strong&gt; will play a key role in driving Acquia’s business developm",
+      "departments": [
+        {
+          "id": 5364,
+          "name": "Sales",
+          "child_ids": [],
+          "parent_id": null
+        }
+      ],
+      "offices": [
+        {
+          "id": 3216,
+          "name": "Remote-United-States",
+          "location": null,
+          "child_ids": [
+            3208,
+            114569,
+            54533,
+            74690,
+            69020,
+            3212,
+            3207
+          ],
+          "parent_id": null
+        }
+      ],
+      "ai_disclaimer": null,
+      "include_ai_disclaimer": null,
+      "ai_opt_out_request_url": null
+    }
+  ]
+}

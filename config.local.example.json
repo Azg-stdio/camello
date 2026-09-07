@@ -1,0 +1,11 @@
+{
+  "lang": "es",
+  "salario_minimo_usd_mes": 4000,
+  "obsidian": {
+    "vault": "C:/Users/tu-usuario/Documents/MiVault",
+    "carpeta": "Camello"
+  },
+  "refresh": { "cada": "6h" },
+  "juicio": { "max_por_corrida": 20, "prioridad": ["drupal", "php", "symfony", "lead"] },
+  "tasa_cop": 4100
+}

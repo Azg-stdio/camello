@@ -1,0 +1,123 @@
+{
+  "hilo": {
+    "by": "whoishiring",
+    "descendants": 345,
+    "id": 49522897,
+    "kids": [
+      49523712,
+      49523950,
+      49524580,
+      49527388,
+      49525651,
+      49523835,
+      49533854,
+      49525748,
+      49524098,
+      49547973,
+      49524979,
+      49525241
+    ],
+    "score": 248,
+    "text": "Please state the location and include REMOTE for remote work, REMOTE (US)\nor similar if the country is restricted, and ONSITE when remote work is <i>not</i> an option.<p>Please only post if you personally are part of the hiring company—no\nrecruiting firms or job boards. One post per company. If it isn&#x27;t a household name,\nexplain what your company does.<p>Please only post if you are actively filling a position and are committed\nto replying to applicants.<p>Commenters: please don&#x27;t reply to job posts to complain about\nsomething. It&#x27;s off topic here.<p>Readers: please only email if you are personally interested in the job.<p>Searchers: try <a href=\"https:&#x2F;&#x2F;nthesis.ai&#x2F;public&#x2F;hn-who-is-hiring\" rel=\"nofollow\">https:&#x2F;&#x2F;nthesis.ai&#x2F;public&#x2F;hn-who-is-hiring</a>, <a href=\"https:&#x2F;&#x2F;dheerajck.github.io&#x2F;hnwhoishiring&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;dheerajck.github.io&#x2F;hnwhoishiring&#x2F;</a>,\n<a href=\"http:&#x2F;&#x2F;nchelluri.github.io&#x2F;hnjobs&#x2F;\" rel=\"nofollow\">http:&#x2F;&#x2F;nchelluri.github.io&#x2F;hnjobs&#x2F;</a>, <a href=\"https:&#x2F;&#x2F;hnjobs.emilburzo.com\" rel=\"nofollow\">https:&#x2F;&#x2F;hnjobs.emilburzo.com</a>.<p>Don&#x27;t miss this other fine thread: <i>Who wants to be hired?</i> <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=49522896\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=49522896</a>",
+    "time": 1788274877,
+    "title": "Ask HN: Who is hiring? (September 2026)",
+    "type": "story"
+  },
+  "comentarios": [
+    {
+      "by": "fh973",
+      "id": 49523712,
+      "parent": 49522897,
+      "text": "QUOBYTE | Berlin, Germany | Full-time | ONSITE (Germany) | <a href=\"https:&#x2F;&#x2F;www.quobyte.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.quobyte.com&#x2F;</a><p>At <i>Quobyte</i> we are working on a highly scalable and fault-tolerant software storage system built around a parallel file system core. Our customers use us for large scale AI and HPC clusters in the enterprise and research, k8s and OpenStack infrastructures, and as a scalable backend for SaaS products. There are Quobyte clusters which span tens of thousands of machines and slurp 100s of GB&#x2F;s!<p>Under the hood, we have built a full-stack fault-tolerant parallel file system, with everything from kernel development over our own replicated database system design to distributed algorithms (Paxos!) and performance. In short: lots of real-world challenging and fun problems!<p>We work as a highly efficient engineering team, ship frequently, do code reviews, and have lots of unit and integration testing. If you’re passionate about systems, we might be the right place for you!<p>Berlin, Germany (Onsite):<p>* Software Engineer (with a passion for Systems, 60-100k EUR)\n* Infrastructure Engineer (engineering and corpor",
+      "time": 1788277998,
+      "type": "comment"
+    },
+    {
+      "by": "PlantingSpace",
+      "id": 49523950,
+      "parent": 49522897,
+      "text": "PlantingSpace | Full-time | Remote (EU time zone) + Quarterly Meet-ups | <a href=\"https:&#x2F;&#x2F;planting.space\" rel=\"nofollow\">https:&#x2F;&#x2F;planting.space</a><p>We&#x27;re building a system that represents domain knowledge as modular probabilistic models — making analysis rigorous and transparent. Users can connect these models flexibly into larger structures. The system enforces consistency across them, and propagates uncertainty through each step. Our first applications are in finance and scientific research, with use cases ranging from equity valuation and distress monitoring, to particle physics.<p>We&#x27;re hiring for the following openings:<p>* Engineering Program Lead<p>* Backend Software Engineer<p>* Quantitative Modelling Engineer<p>* Bayesian Software Engineer<p>* Program Synthesis Engineer<p>* Analytic Learning Algorithm Researcher<p>* Product Managers and Business Development<p>* Domain Experts - Valuation, Quantitative Default-Probability, or Interest Rate Prediction Models: to collaborate on use cases, from opportunity validation through production<p>We’ve recently released a series of recordings from one of our quarterly team retreats, to share a look into ",
+      "time": 1788278885,
+      "type": "comment"
+    },
+    {
+      "by": "konklone",
+      "id": 49524580,
+      "parent": 49522897,
+      "text": "Wikimedia Foundation | Lead Product Manager, Security | REMOTE (US + 18 countries) | Full-time<p>I lead the security and safety team for Wikipedia, at the Wikimedia Foundation. I’m hiring a product manager to lead our security roadmap and steer the priorities of our security engineering team.<p>It’s a high-pace, shipping-heavy time for the whole project right now, as we are dedicating ourselves to surviving all the ways AI is messing with us and the internet, and getting to the other side of it. I joined myself about a year ago, and have found it to be a great time and place to swing big and surprise people.<p>This is a PM role and PM background is certainly helpful, but it’s not strictly required (everyone has the first PM job at some point). A technical background and security expertise are a must for this role, so we’re also open to people in engineering roles, who have demonstrated PM-relevant skills and are interested in making a pivot.<p>You can apply at <a href=\"https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;wikimedia&#x2F;jobs&#x2F;8140060?gh_src=ffz28xxn1us\" rel=\"nofollow\">https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;wikimedia&#x2F;jobs&#x2F;8140060?gh_s...</a> - we do",
+      "time": 1788281535,
+      "type": "comment"
+    },
+    {
+      "by": "nothing-nothing",
+      "id": 49527388,
+      "parent": 49522897,
+      "text": "Paul Scherrer Institut (PSI), Switzerland | Software Scientist &#x2F; Research Software Engineer | ONSITE (CH) | Full-time | 2y project | www.psi.ch<p>PSI is the largest research institute for natural and engineering sciences within Switzerland. We perform cutting-edge research in the fields of future technologies, energy and climate, health innovation and fundamentals of nature. By performing fundamental and applied research, we work on sustainable solutions for major challenges for society, science and economy.<p>We are looking for a developer for the measurement orchestration software for experiments at the Swiss Light Source (SLS) synchrotron. Our scientists rely on this software for time-critical experiments, requiring support before, during, and after measurements to use, extend, and integrate new functionality. The role acts as translator and facilitator between scientists and specialists across a wide range of disciplines, bridging gaps in collaborative discussions and code development.<p>For a detailed job descriptions and starting the application process, please visit:\n<a href=\"https:&#x2F;&#x2F;www.psi.ch&#x2F;en&#x2F;hr&#x2F;job-opportunities&#x2F;75028-software-scienti",
+      "time": 1788293228,
+      "type": "comment"
+    },
+    {
+      "by": "rossng",
+      "id": 49525651,
+      "parent": 49522897,
+      "text": "MONUMENTAL | <a href=\"https:&#x2F;&#x2F;www.monumental.co&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.monumental.co&#x2F;</a> | Amsterdam, The Netherlands | Full Time | Onsite<p>We make robots that autonomously construct buildings, starting with bricklaying.<p>There&#x27;s a lot of vapourware in robotics, but we&#x27;re deploying robots across multiple concurrent sites today - and generating revenue. In the last couple of months, our robots have built affordable social housing, health care living units, canal walls in the historic city centre of Amsterdam, and a youth sports centre. Help us to build things that matter in the long run.<p>We&#x27;re looking for experienced software engineers for many roles. You can help us solve problems like:<p>- Data sync and analytics queries across a fleet of robots (that can be offline for hours at a time)<p>- Modelling buildings in code and finding the right UI for operators to edit them<p>- Designing systems for robots to drive safely and fully autonomously around a building site<p>Check out the progress we&#x27;ve already made on Atrium, our operating system for robotics: <a href=\"https:&#x2F;&#x2F;www.monumental.co&#x2F;atrium\" rel=\"nofollow",
+      "time": 1788286329,
+      "type": "comment"
+    },
+    {
+      "by": "aspir",
+      "id": 49523835,
+      "parent": 49522897,
+      "text": "*Fastly | Software Engineers (Senior, Staff, Principal) | US, UK, EU, APAC ONSITE PREFERRED | Full-time*<p>When you look at the headers of major websites, you’ll see us. If it has to be performant, secure, scaled worldwide, and always-on, it uses Fastly.<p>We&#x27;re a global edge cloud platform for performance and security, emphasizing open standards, sustainable engineering, and resilience-by-design.<p>We&#x27;re hiring across compute, security, platform engineering, network and edge protocols, release engineering, network architecture, client services engineering, and more.<p>Onsite preferred, but remote candidates with a strong fit are welcome!<p>Rather than building walled gardens, we co-founded the Bytecode Alliance, heavily upstream our work to open standards, actively author IETF drafts, and power the global infrastructure for open-source Python, Rust, Ruby, OpenStreetMap, and much more.<p>* The Stack: Rust, C&#x2F;C++, Go, Javascript, Typescript, WebAssembly (Wasm&#x2F;WASI), Wasmtime, Cranelift, eBPF&#x2F;XDP, QUIC, HTTP, TLS, TCP, Varnish&#x2F;VCL, Linux kernel internals, distributed systems, professional services.  \n* Apply: <a href=\"https:&#x2F;&#x2F;www.fastly.com&#x2",
+      "time": 1788278444,
+      "type": "comment"
+    },
+    {
+      "by": "tdido",
+      "id": 49533854,
+      "parent": 49522897,
+      "text": "Spanish National Cancer Research Centre (CNIO) | Madrid, Spain | HYBRID | Senior Scientific Computing Engineer | Full-time<p>CNIO is one of Europe&#x27;s leading cancer research centres. We&#x27;re looking for a senior scientific computing engineer to join the IT, Scientific Computing and AI area and take ownership of the infrastructure behind our research, from genomics pipelines to AI models. You&#x27;ll be the senior scientific computing person in the area, reporting directly to me (the area head), and you&#x27;ll help define where scientific computing at CNIO goes over the next few years.<p>What you&#x27;ll do:<p>- Shape the roadmap for scientific computing at the centre and drive it forward<p>- Own and evolve our HPC cluster (Slurm): scheduling, monitoring, capacity planning, user support<p>- Build out our GPU &#x2F; AI infrastructure as the centre&#x27;s ML workloads grow<p>- Work with researchers to turn their analyses into robust, reproducible pipelines and tools<p>- Optional: co-author research papers<p>What we&#x27;re looking for:<p>- Several years running Linux HPC environments in production (Slurm or similar)<p>- Comfortable with automation (Ansible, Python), containers",
+      "time": 1788341199,
+      "type": "comment"
+    },
+    {
+      "by": "somethingnew",
+      "id": 49525748,
+      "parent": 49522897,
+      "text": "Discord | Senior Software Engineer, Application Security | San Francisco, CA | ONSITE | $280K–$330K TC<p>Discord is where communities and friend groups spend time together, on desktop, mobile, and now more and more inside games and third-party apps built on our platform. That surface area, plus a huge, engaged, occasionally adversarial user base, makes application security a genuinely hard and interesting problem here.<p>We&#x27;re hiring a Senior Application Security Engineer to join the Product Security team. Responsibilities include threat modeling and secure design review with product and platform teams, building and improving AppSec tooling (SAST&#x2F;DAST&#x2F;dependency scanning), and working directly with engineering teams to remediate findings.<p>Stack: Python primarily, some TypeScript&#x2F;React, some Rust, occasional JavaScript. Runs on GCP.<p>Looking for: hands-on AppSec experience (not just compliance-flavored security), comfort reading and reviewing code across languages, and sound judgment on prioritizing real risk over checklist security.<p>Interview process: recruiter call, coding round, HM interview, virtual onsite, decision.<p>Apply: <a href=\"https:&#x2F;&#x2F;j",
+      "time": 1788286616,
+      "type": "comment"
+    },
+    {
+      "deleted": true,
+      "id": 49524098,
+      "parent": 49522897,
+      "time": 1788279499,
+      "type": "comment"
+    },
+    {
+      "by": "katie_zhy",
+      "id": 49547973,
+      "parent": 49522897,
+      "text": "VictoriaMetrics | Remote | EMEA, North America | Hiring<p>VictoriaMetrics is an open-source monitoring and observability company. We build VictoriaMetrics, VictoriaLogs, and VictoriaTraces — high-performance, cost-efficient solutions for metrics, logs, and traces.<p>Our products are used by companies including Spotify, Wix, Grammarly, CERN, and thousands of others, with 1B+ downloads of our open-source products.<p>We&#x27;re a fully remote team of 60+ and are currently hiring:<p>Senior Solution Engineer (Observability &amp; Linux) — North America, Remote\nSenior Developer Advocate — North America, Remote\nMarketing Manager — North America, Remote\nProduct Marketing Manager (Enterprise) — EMEA, Remote<p>We&#x27;re particularly interested in people with experience in open source, observability, monitoring, infrastructure, databases, developer tools, or technical B2B products.<p>Jobs &amp; applications: <a href=\"https:&#x2F;&#x2F;careers.victoriametrics.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;careers.victoriametrics.com&#x2F;</a><p>Happy to answer questions about VictoriaMetrics or the roles here.",
+      "time": 1788429188,
+      "type": "comment"
+    },
+    {
+      "by": "nedwin",
+      "id": 49524979,
+      "parent": 49522897,
+      "text": "Great Question | Product Engineer | Remote (Canada) | Full-time | <a href=\"https:&#x2F;&#x2F;greatquestion.com\" rel=\"nofollow\">https:&#x2F;&#x2F;greatquestion.com</a><p>Great Question is the best way to understand your customers - whether it&#x27;s mining what they&#x27;ve already told you, or generating new research via interviews, surveys and prototype tests. We&#x27;re 2nd time founders, closed our Series A last year, with customers from Canva &amp; Brex to Intuit &amp; Amazon.<p>We&#x27;re hiring product engineers to help us push the envelope on what&#x27;s possible in AI engineering practices, while helping our customers bake customer insight into every product release.<p>You&#x27;ll do well here if you have a strong sense of what makes a quality product, you&#x27;re AI native, and you solve the problem of ambiguity with getting closer to customers.<p>We&#x27;re hiring product engineers!<p><a href=\"https:&#x2F;&#x2F;greatquestion.com&#x2F;careers\" rel=\"nofollow\">https:&#x2F;&#x2F;greatquestion.com&#x2F;careers</a>",
+      "time": 1788283312,
+      "type": "comment"
+    },
+    {
+      "by": "ridiculous_fish",
+      "id": 49525241,
+      "parent": 49522897,
+      "text": "Oklo | Remote (US) or Santa Clara or Brooklyn | Full time | <a href=\"https:&#x2F;&#x2F;oklo.com\" rel=\"nofollow\">https:&#x2F;&#x2F;oklo.com</a><p>Join us in pioneering the next generation of nuclear reactors! You&#x27;ll leverage your software skills alongside nuclear engineers to model, simulate, design, and deploy advanced fission power technology. You will work at the forefront of the nuclear industry, developing novel techniques to reach new levels of safety, efficiency, and resiliency. Come be a part of powering the future with advanced fission power plants to provide clean, reliable, affordable energy.<p>We are hiring for:<p>- Software Engineer: <a href=\"https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;oklo&#x2F;jobs&#x2F;4018702004\" rel=\"nofollow\">https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;oklo&#x2F;jobs&#x2F;4018702004</a><p>- Senior Software Engineer: <a href=\"https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;oklo&#x2F;jobs&#x2F;5739483004\" rel=\"nofollow\">https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;oklo&#x2F;jobs&#x2F;5739483004</a><p>- Software Engineer (Applied AI&#x2F;ML): <a href=\"https:&#x2F;&#x2F;job-boards.greenhouse.io&#x2F;oklo&#x2F;jobs&#x2F;6150355004\" rel=",
+      "time": 1788284541,
+      "type": "comment"
+    }
+  ]
+}

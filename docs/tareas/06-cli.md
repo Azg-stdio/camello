@@ -39,7 +39,7 @@ Flags globales: `--json`, `--lang es|en`, `--db <ruta>`, `--quiet`.
 
 ## Entregables
 
-- `package.json` con `bin: { camello: dist/cli/camello.js }`, `scripts: { build, test }`, `engines.node >= 22`.
+- `package.json` con `bin: { camello: dist/src/cli/camello.js }`, `scripts: { build, test }`, `engines.node >= 22`.
 - `tsconfig.json` estricto, salida a `dist/`.
 - `src/cli/` con los comandos de la tabla que existan a la fecha; los demás responden "no implementado aún" con el número de tarea.
 - Prueba de humo: `camello --help` y `camello stats --json` sobre base vacía.

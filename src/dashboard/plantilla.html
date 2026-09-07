@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<script>
+  // Tema: sigue el sistema salvo que el usuario haya elegido uno (localStorage).
+  (function () {
+    var elegido = null;
+    try { elegido = localStorage.getItem("camello-tema"); } catch (e) {}
+    var oscuro = elegido ? elegido === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.classList.add(oscuro ? "wa-dark" : "wa-light");
+  })();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.12.0/dist/styles/webawesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.12.0/dist/styles/themes/default.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.12.0/dist/webawesome.loader.js"></script>
+<style>
+  /* Fallback propio: si el CDN no carga, la página sigue legible. */
+  :root {
+    --c-fondo: #faf7f1;
+    --c-superficie: #ffffff;
+    --c-texto: #1f1c17;
+    --c-texto-suave: #6b645a;
+    --c-borde: #e3ddd2;
+    --c-acento: #b5651d;
+    --c-ok: #2f7d4f;
+    --c-aviso: #b8860b;
+    --c-mal: #b23a3a;
+    --c-neutro: #7a7a7a;
+    color-scheme: light;
+  }
+  html.wa-dark {
+    --c-fondo: #15130f;
+    --c-superficie: #201c17;
+    --c-texto: #f1ece3;
+    --c-texto-suave: #a79f92;
+    --c-borde: #3a342c;
+    --c-acento: #e39a52;
+    --c-ok: #5cbf82;
+    --c-aviso: #e0b040;
+    --c-mal: #e06c6c;
+    --c-neutro: #9a9a9a;
+    color-scheme: dark;
+  }
+  html { background: var(--wa-color-surface-default, var(--c-fondo)); }
+  body {
+    margin: 0;
+    font-family: var(--wa-font-family-body, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
+    color: var(--wa-color-text-normal, var(--c-texto));
+    background: var(--wa-color-surface-default, var(--c-fondo));
+    line-height: 1.45;
+  }
+  main { max-width: 1240px; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
+  header.cabecera {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem;
+    padding: 1rem 0 1.25rem; border-bottom: 1px solid var(--wa-color-surface-border, var(--c-borde));
+  }
+  header.cabecera .logo { width: 220px; max-width: 60vw; color: var(--wa-color-text-normal, var(--c-texto)); }
+  header.cabecera .logo svg { width: 100%; height: auto; display: block; }
+  header.cabecera .meta { flex: 1; min-width: 240px; color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-size: 0.92rem; }
+  header.cabecera .meta strong { color: var(--wa-color-text-normal, var(--c-texto)); }
+  .tema { margin-left: auto; }
+  button.plano {
+    font: inherit; padding: 0.35rem 0.75rem; border-radius: 0.5rem; cursor: pointer;
+    border: 1px solid var(--wa-color-surface-border, var(--c-borde));
+    background: var(--wa-color-surface-raised, var(--c-superficie)); color: inherit;
+  }
+  h2 { font-size: 1.15rem; margin: 2rem 0 0.75rem; }
+  h2 small { font-weight: normal; color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-size: 0.85rem; margin-left: 0.5rem; }
+  .tarjetas { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; margin-top: 1rem; }
+  .tarjeta, wa-card::part(base), .col {
+    background: var(--wa-color-surface-raised, var(--c-superficie));
+    border: 1px solid var(--wa-color-surface-border, var(--c-borde));
+    border-radius: 0.75rem;
+  }
+  .tarjeta { padding: 0.9rem 1rem; }
+  .tarjeta .n { font-size: 1.8rem; font-weight: 600; line-height: 1.1; }
+  .tarjeta .l { color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-size: 0.85rem; }
+  .cobertura { padding: 1rem 1.1rem; }
+  .cobertura .frase { font-size: 1.25rem; margin: 0 0 0.6rem; }
+  .cobertura .frase strong { color: var(--wa-color-brand-on-quiet, var(--c-acento)); }
+  .barra { height: 12px; border-radius: 999px; background: var(--wa-color-neutral-fill-quiet, var(--c-borde)); overflow: hidden; }
+  .barra > span { display: block; height: 100%; background: var(--wa-color-success-fill-loud, var(--c-ok)); }
+  .desglose { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0.6rem 0 0; padding: 0; list-style: none; font-size: 0.9rem; }
+  .desglose li::before { content: ""; display: inline-block; width: 0.6rem; height: 0.6rem; border-radius: 50%; margin-right: 0.4rem; background: var(--punto, var(--c-neutro)); }
+  .controles { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.6rem; align-items: center; }
+  .controles input, .controles select {
+    font: inherit; font-size: 0.9rem; padding: 0.35rem 0.6rem; border-radius: 0.5rem;
+    border: 1px solid var(--wa-color-surface-border, var(--c-borde));
+    background: var(--wa-color-surface-raised, var(--c-superficie)); color: inherit;
+    width: auto; max-width: 100%; flex: 0 1 auto; margin: 0; box-sizing: border-box;
+  }
+  .controles input[type="search"] { flex: 1 1 220px; min-width: 160px; max-width: 420px; }
+  .controles select { padding-right: 1.6rem; }
+  .controles span { flex: 0 0 auto; }
+  button.plano { font-size: 0.9rem; width: auto; }
+  .scroll { overflow-x: auto; border: 1px solid var(--wa-color-surface-border, var(--c-borde)); border-radius: 0.75rem; background: var(--wa-color-surface-raised, var(--c-superficie)); }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; min-width: 760px; }
+  th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--wa-color-surface-border, var(--c-borde)); vertical-align: top; }
+  th { font-weight: 600; white-space: nowrap; user-select: none; }
+  th[data-orden] { cursor: pointer; }
+  th[data-orden]::after { content: " ↕"; opacity: 0.35; }
+  th.asc::after { content: " ↑"; opacity: 1; }
+  th.desc::after { content: " ↓"; opacity: 1; }
+  tr:last-child td { border-bottom: 0; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.nowrap { white-space: nowrap; }
+  .puntaje { display: inline-block; min-width: 2.4rem; text-align: center; font-weight: 600; border-radius: 0.4rem; padding: 0.1rem 0.4rem; background: var(--wa-color-neutral-fill-quiet, var(--c-borde)); }
+  .puntaje.alto { background: color-mix(in srgb, var(--c-ok) 22%, transparent); color: var(--c-ok); }
+  .puntaje.medio { background: color-mix(in srgb, var(--c-aviso) 22%, transparent); color: var(--c-aviso); }
+  .badge { display: inline-block; font-size: 0.78rem; padding: 0.1rem 0.5rem; border-radius: 999px; white-space: nowrap; border: 1px solid transparent; }
+  .badge.ok { color: var(--c-ok); border-color: var(--c-ok); }
+  .badge.aviso { color: var(--c-aviso); border-color: var(--c-aviso); }
+  .badge.mal { color: var(--c-mal); border-color: var(--c-mal); }
+  .badge.neutro { color: var(--c-neutro); border-color: var(--c-neutro); }
+  .badge.acento { color: var(--c-acento); border-color: var(--c-acento); }
+  td details { display: block; margin: 0.25rem 0 0; padding: 0; border: 0; background: none; font-size: 0.85rem; }
+  td details summary { padding: 0.1rem 0; font-size: 0.82rem; }
+  details summary { cursor: pointer; color: var(--wa-color-text-quiet, var(--c-texto-suave)); }
+  details p { margin: 0.4rem 0 0; }
+  details blockquote { margin: 0.3rem 0 0; padding-left: 0.6rem; border-left: 3px solid var(--c-acento); font-style: italic; }
+  details ul { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+  .pipeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.75rem; }
+  .col { padding: 0.75rem; min-height: 5rem; }
+  .col h3 { margin: 0 0 0.5rem; font-size: 0.95rem; display: flex; justify-content: space-between; }
+  .col h3 span { color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-weight: normal; }
+  .ficha { border: 1px solid var(--wa-color-surface-border, var(--c-borde)); border-radius: 0.5rem; padding: 0.45rem 0.55rem; margin-bottom: 0.45rem; font-size: 0.85rem; background: var(--wa-color-surface-default, var(--c-fondo)); }
+  .ficha .e { font-weight: 600; }
+  .ficha .f { color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-size: 0.78rem; }
+  .ficha.alerta { border-color: var(--c-mal); }
+  .vacio { color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-style: italic; padding: 0.75rem 0.9rem; }
+  a { color: var(--wa-color-brand-on-quiet, var(--c-acento)); }
+  footer { margin-top: 2.5rem; color: var(--wa-color-text-quiet, var(--c-texto-suave)); font-size: 0.8rem; }
+  @media (max-width: 640px) { header.cabecera .logo { width: 160px; } .tarjeta .n { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="cabecera">
+    <div class="logo" aria-label="camello">{{LOGO}}</div>
+    <div class="meta" id="meta"></div>
+    <div class="tema"><button class="plano" id="btn-tema" type="button"></button></div>
+  </header>
+
+  <section id="totales" class="tarjetas"></section>
+
+  <h2 id="h-cobertura"></h2>
+  <section class="cobertura tarjeta" id="cobertura"></section>
+
+  <h2 id="h-shortlist"></h2>
+  <div class="controles">
+    <input type="search" id="filtro" autocomplete="off">
+    <select id="filtro-veredicto"></select>
+    <select id="filtro-estado"></select>
+    <label id="filtro-minimo-etiqueta" style="font-size: 0.85rem; display: inline-flex; gap: 0.35rem; align-items: center;"><input type="checkbox" id="filtro-minimo"> <span id="filtro-minimo-texto"></span></label>
+    <span id="shortlist-conteo" style="color: var(--c-texto-suave); font-size: 0.85rem;"></span>
+  </div>
+  <div class="scroll"><table id="shortlist"><thead></thead><tbody></tbody></table></div>
+
+  <h2 id="h-pipeline"></h2>
+  <section class="pipeline" id="pipeline"></section>
+
+  <h2 id="h-nuevas"></h2>
+  <div class="scroll"><table id="nuevas"><thead></thead><tbody></tbody></table></div>
+
+  <h2 id="h-desaparecidas"></h2>
+  <section id="desaparecidas"></section>
+
+  <footer id="pie"></footer>
+</main>
+
+<script id="datos" type="application/json">{{DATOS}}</script>
+<script id="textos" type="application/json">{{TEXTOS}}</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("datos").textContent);
+  var T = JSON.parse(document.getElementById("textos").textContent);
+  var lang = document.documentElement.lang || "es";
+  var locale = lang === "en" ? "en-US" : "es-CO";
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function num(n) { return new Intl.NumberFormat(locale).format(n); }
+  function fecha(iso, hora) {
+    if (!iso) return "-";
+    var d = new Date(iso); if (isNaN(d)) return iso;
+    return new Intl.DateTimeFormat(locale, hora ? { dateStyle: "medium", timeStyle: "short" } : { dateStyle: "medium" }).format(d);
+  }
+  function usd(n) { return new Intl.NumberFormat(locale, { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n); }
+  function cop(n) { return new Intl.NumberFormat(locale, { style: "currency", currency: "COP", maximumFractionDigits: 0 }).format(n); }
+  function tx(k, v) { var s = T[k] == null ? k : T[k]; return s.replace(/\{(\w+)\}/g, function (_, n) { return v && v[n] != null ? v[n] : "{" + n + "}"; }); }
+  function badge(clase, texto) { return '<span class="badge ' + clase + '">' + esc(texto) + '</span>'; }
+  var claseEleg = { abierta: "ok", probable: "ok", improbable: "aviso", cerrada: "mal", desconocida: "neutro" };
+  var claseVer = { aplicar: "ok", considerar: "aviso", descartar: "mal" };
+  var claseEst = { vista: "neutro", preseleccionada: "acento", aplicada: "ok", entrevista: "ok", oferta: "ok", rechazada: "mal", descartada: "neutro" };
+  var colorEleg = { abierta: "#2f7d4f", probable: "#5cbf82", improbable: "#b8860b", cerrada: "#b23a3a", desconocida: "#7a7a7a" };
+
+  // ---- tema ----
+  var btn = $("btn-tema");
+  function pintarTema() { var oscuro = document.documentElement.classList.contains("wa-dark"); btn.textContent = oscuro ? tx("dashboard.tema_claro") : tx("dashboard.tema_oscuro"); }
+  btn.addEventListener("click", function () {
+    var h = document.documentElement; var oscuro = h.classList.contains("wa-dark");
+    h.classList.toggle("wa-dark", !oscuro); h.classList.toggle("wa-light", oscuro);
+    try { localStorage.setItem("camello-tema", oscuro ? "light" : "dark"); } catch (e) {}
+    pintarTema();
+  });
+  pintarTema();
+
+  // ---- cabecera ----
+  var c = D.ultima_corrida;
+  $("meta").innerHTML = c
+    ? tx("dashboard.ultima_corrida", { fecha: "<strong>" + esc(fecha(c.inicio, true)) + "</strong>", fraccion: "<strong>" + num(c.fuentes_ok) + "/" + num(c.fuentes_total) + "</strong>", nuevas: num(c.nuevas), cambiadas: num(c.cambiadas), desaparecidas: num(c.desaparecidas) })
+    : esc(tx("dashboard.sin_corridas"));
+
+  // ---- totales ----
+  var R = D.resumen;
+  var tarjetas = [
+    [R.activas, tx("dashboard.t_activas")],
+    [R.juzgadas, tx("dashboard.t_juzgadas")],
+    [R.pendientes, tx("dashboard.t_pendientes")],
+    [D.shortlist.length, tx("dashboard.t_shortlist")],
+    [R.nuevas_7d, tx("dashboard.t_nuevas_7d")],
+    [(R.por_estado.aplicada || 0) + (R.por_estado.entrevista || 0) + (R.por_estado.oferta || 0), tx("dashboard.t_en_proceso")]
+  ];
+  $("totales").innerHTML = tarjetas.map(function (t) { return '<div class="tarjeta"><div class="n">' + num(t[0]) + '</div><div class="l">' + esc(t[1]) + '</div></div>'; }).join("");
+
+  // ---- cobertura ----
+  $("h-cobertura").textContent = tx("dashboard.h_cobertura");
+  var abiertas = (R.por_elegibilidad.abierta || 0) + (R.por_elegibilidad.probable || 0);
+  var pct = R.juzgadas ? Math.round(abiertas * 100 / R.juzgadas) : 0;
+  var orden = ["abierta", "probable", "improbable", "cerrada", "desconocida"];
+  $("cobertura").innerHTML =
+    '<p class="frase">' + tx("dashboard.cobertura_frase", { abiertas: "<strong>" + num(abiertas) + "</strong>", juzgadas: "<strong>" + num(R.juzgadas) + "</strong>", activas: num(R.activas) }) + "</p>" +
+    '<div class="barra" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><span style="width:' + pct + '%"></span></div>' +
+    '<ul class="desglose">' + orden.map(function (k) { return '<li style="--punto:' + colorEleg[k] + '">' + esc(tx("elegibilidad." + k)) + " " + num(R.por_elegibilidad[k] || 0) + "</li>"; }).join("") + "</ul>";
+
+  // ---- shortlist ----
+  $("h-shortlist").innerHTML = esc(tx("dashboard.h_shortlist")) + "<small>" + esc(tx("dashboard.h_shortlist_nota")) +
+    (D.salario_minimo_usd_mes ? " · " + esc(tx("dashboard.minimo_nota", { min: usd(D.salario_minimo_usd_mes) })) : "") + "</small>";
+  $("filtro").placeholder = tx("dashboard.filtro_texto");
+  $("filtro-minimo-texto").textContent = tx("dashboard.filtro_bajo_minimo");
+  $("filtro-minimo-etiqueta").hidden = !D.salario_minimo_usd_mes;
+  var cols = [
+    { k: "puntaje", t: tx("col.puntaje"), num: true },
+    { k: "veredicto", t: tx("col.veredicto") },
+    { k: "empresa", t: tx("col.empresa") },
+    { k: "titulo", t: tx("col.titulo") },
+    { k: "elegibilidad", t: tx("col.elegibilidad") },
+    { k: "pago_usd_mes", t: tx("dashboard.col_pago_usd"), num: true },
+    { k: "pago_cop_mes", t: tx("dashboard.col_pago_cop"), num: true },
+    { k: "contrato", t: tx("col.contrato") },
+    { k: "estado", t: tx("col.estado") },
+    { k: "primera_vez", t: tx("col.vista") },
+    { k: "url", t: "" }
+  ];
+  var ordenCol = "puntaje", ordenDir = -1;
+  $("shortlist").querySelector("thead").innerHTML = "<tr>" + cols.map(function (col) { return "<th" + (col.k === "url" ? "" : ' data-orden="' + col.k + '"') + ">" + esc(col.t) + "</th>"; }).join("") + "</tr>";
+  function opciones(sel, todos, claves, prefijo) {
+    sel.innerHTML = '<option value="">' + esc(todos) + "</option>" + claves.map(function (k) { return '<option value="' + k + '">' + esc(tx(prefijo + "." + k)) + "</option>"; }).join("");
+  }
+  opciones($("filtro-veredicto"), tx("dashboard.filtro_veredicto"), ["aplicar", "considerar"], "veredicto");
+  opciones($("filtro-estado"), tx("dashboard.filtro_estado"), ["vista", "preseleccionada", "aplicada", "entrevista", "oferta", "rechazada", "descartada"], "estado");
+
+  function filaShortlist(f) {
+    var j = f.juicio;
+    var pClase = f.puntaje >= 70 ? "alto" : f.puntaje >= 50 ? "medio" : "";
+    var pago = f.pago_usd_mes != null ? usd(f.pago_usd_mes) : (j.pago.min == null && j.pago.max == null ? tx("dashboard.pago_sin_cifra") : (j.pago.min || "?") + "-" + (j.pago.max || "?") + " " + j.pago.moneda);
+    var ajustado = j.pago.ajustado_a !== "desconocido" ? " <small>(" + esc(tx("ajustado." + j.pago.ajustado_a)) + ")</small>" : "";
+    var detalle = '<details><summary>' + esc(tx("dashboard.ver_evidencia")) + "</summary>" +
+      (j.evidencia_elegibilidad ? "<blockquote>" + esc(j.evidencia_elegibilidad) + "</blockquote>" : "") +
+      (j.pago.evidencia ? "<blockquote>" + esc(j.pago.evidencia) + "</blockquote>" : "") +
+      "<p>" + esc(j.resumen) + "</p>" +
+      (j.ajuste.fortalezas.length ? "<ul>" + j.ajuste.fortalezas.map(function (s) { return "<li>+ " + esc(s) + "</li>"; }).join("") + "</ul>" : "") +
+      (j.ajuste.brechas.length ? "<ul>" + j.ajuste.brechas.map(function (s) { return "<li>&minus; " + esc(s) + "</li>"; }).join("") + "</ul>" : "") +
+      "<p><code>" + esc(f.id) + "</code></p></details>";
+    return "<tr>" +
+      '<td class="num"><span class="puntaje ' + pClase + '">' + f.puntaje + "</span></td>" +
+      "<td>" + badge(claseVer[j.veredicto] || "neutro", tx("veredicto." + j.veredicto)) + "</td>" +
+      "<td>" + esc(f.empresa) + "</td>" +
+      "<td>" + esc(f.titulo) + detalle + "</td>" +
+      "<td>" + badge(claseEleg[j.elegibilidad] || "neutro", tx("elegibilidad." + j.elegibilidad)) + "</td>" +
+      '<td class="num">' + esc(pago) + ajustado + (f.bajo_minimo ? " " + badge("neutro", tx("dashboard.bajo_minimo")) : "") + "</td>" +
+      '<td class="num">' + (f.pago_cop_mes != null ? esc(cop(f.pago_cop_mes)) : "-") + "</td>" +
+      "<td>" + esc(tx("contrato." + j.contrato)) + "</td>" +
+      "<td>" + badge(claseEst[f.estado] || "neutro", tx("estado." + f.estado)) + "</td>" +
+      '<td class="nowrap">' + esc(fecha(f.primera_vez)) + "</td>" +
+      "<td>" + (f.url ? '<a href="' + esc(f.url) + '" target="_blank" rel="noopener">' + esc(tx("dashboard.abrir")) + "</a>" : "") + "</td>" +
+      "</tr>";
+  }
+  function pintarShortlist() {
+    var q = $("filtro").value.trim().toLowerCase();
+    var fv = $("filtro-veredicto").value, fe = $("filtro-estado").value;
+    var filas = D.shortlist.filter(function (f) {
+      if (fv && f.juicio.veredicto !== fv) return false;
+      if (fe && f.estado !== fe) return false;
+      if ($("filtro-minimo").checked && f.bajo_minimo) return false;
+      if (!q) return true;
+      return (f.empresa + " " + f.titulo + " " + f.juicio.resumen).toLowerCase().indexOf(q) >= 0;
+    });
+    filas.sort(function (a, b) {
+      var x = a[ordenCol], y = b[ordenCol];
+      if (x == null) x = ordenCol === "puntaje" || /pago/.test(ordenCol) ? -Infinity : ""; if (y == null) y = ordenCol === "puntaje" || /pago/.test(ordenCol) ? -Infinity : "";
+      if (typeof x === "number" && typeof y === "number") return (x - y) * ordenDir;
+      return String(x).localeCompare(String(y), locale) * ordenDir;
+    });
+    $("shortlist").querySelector("tbody").innerHTML = filas.length ? filas.map(filaShortlist).join("") : '<tr><td colspan="' + cols.length + '" class="vacio">' + esc(tx("dashboard.shortlist_vacio")) + "</td></tr>";
+    $("shortlist-conteo").textContent = tx("dashboard.mostrando", { n: num(filas.length), total: num(D.shortlist.length) });
+    Array.prototype.forEach.call($("shortlist").querySelectorAll("th[data-orden]"), function (th) {
+      th.classList.toggle("asc", th.dataset.orden === ordenCol && ordenDir === 1);
+      th.classList.toggle("desc", th.dataset.orden === ordenCol && ordenDir === -1);
+    });
+  }
+  $("shortlist").querySelector("thead").addEventListener("click", function (ev) {
+    var th = ev.target.closest("th[data-orden]"); if (!th) return;
+    if (ordenCol === th.dataset.orden) ordenDir = -ordenDir; else { ordenCol = th.dataset.orden; ordenDir = ordenCol === "puntaje" || /pago/.test(ordenCol) ? -1 : 1; }
+    pintarShortlist();
+  });
+  ["filtro", "filtro-veredicto", "filtro-estado"].forEach(function (id) { $(id).addEventListener("input", pintarShortlist); });
+  $("filtro-minimo").addEventListener("change", pintarShortlist);
+  pintarShortlist();
+
+  // ---- pipeline ----
+  $("h-pipeline").textContent = tx("dashboard.h_pipeline");
+  var estados = ["preseleccionada", "aplicada", "entrevista", "oferta", "rechazada", "descartada"];
+  $("pipeline").innerHTML = estados.map(function (e) {
+    var lista = D.pipeline[e] || [];
+    return '<div class="col"><h3>' + esc(tx("estado." + e)) + "<span>" + num(lista.length) + "</span></h3>" +
+      (lista.length ? lista.map(function (v) {
+        return '<div class="ficha' + (v.desaparecida_en ? " alerta" : "") + '"><div class="e">' + esc(v.empresa) + '</div><div>' + esc(v.titulo) + '</div><div class="f">' + esc(fecha(v.actualizada_en)) + (v.desaparecida_en ? " · " + esc(tx("dashboard.desaparecida")) : "") + "</div></div>";
+      }).join("") : '<div class="vacio">' + esc(tx("dashboard.columna_vacia")) + "</div>") + "</div>";
+  }).join("");
+
+  // ---- nuevas esta semana ----
+  $("h-nuevas").innerHTML = esc(tx("dashboard.h_nuevas")) + "<small>" + num(D.nuevas.length) + "</small>";
+  var tn = $("nuevas");
+  tn.querySelector("thead").innerHTML = "<tr><th>" + [tx("col.empresa"), tx("col.titulo"), tx("col.ubicacion"), tx("col.remoto"), tx("dashboard.col_pago_declarado"), tx("col.veredicto"), tx("col.vista"), ""].map(esc).join("</th><th>") + "</th></tr>";
+  tn.querySelector("tbody").innerHTML = D.nuevas.length ? D.nuevas.map(function (v) {
+    return "<tr><td>" + esc(v.empresa) + "</td><td>" + esc(v.titulo) + "</td><td>" + esc(v.ubicacion || "-") + "</td><td>" + (v.remoto === true ? esc(tx("si")) : v.remoto === false ? esc(tx("no")) : "?") + "</td><td>" + esc(v.pago_declarado || "-") + "</td><td>" +
+      (v.veredicto ? badge(claseVer[v.veredicto] || "neutro", tx("veredicto." + v.veredicto)) : badge("neutro", tx("dashboard.sin_juicio"))) + '</td><td class="nowrap">' + esc(fecha(v.primera_vez)) + "</td><td>" +
+      (v.url ? '<a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(tx("dashboard.abrir")) + "</a>" : "") + "</td></tr>";
+  }).join("") : '<tr><td colspan="8" class="vacio">' + esc(tx("dashboard.nuevas_vacio")) + "</td></tr>";
+
+  // ---- desaparecidas con aplicación activa ----
+  $("h-desaparecidas").innerHTML = esc(tx("dashboard.h_desaparecidas")) + "<small>" + num(D.desaparecidas.length) + "</small>";
+  $("desaparecidas").innerHTML = D.desaparecidas.length
+    ? '<div class="pipeline">' + D.desaparecidas.map(function (v) {
+        return '<div class="ficha alerta"><div class="e">' + esc(v.empresa) + "</div><div>" + esc(v.titulo) + '</div><div class="f">' + esc(tx("estado." + v.estado)) + " · " + esc(tx("dashboard.desaparecida_el", { fecha: fecha(v.desaparecida_en) })) + "</div></div>";
+      }).join("") + "</div>"
+    : '<div class="vacio tarjeta">' + esc(tx("dashboard.desaparecidas_vacio")) + "</div>";
+
+  $("pie").textContent = tx("dashboard.pie", { fecha: fecha(D.generado, true), tasa: num(D.tasa_cop) });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<style>
+  /* Hoja de vida imprimible: una columna, fuente estándar, sin tablas ni iconos (tarea 13). */
+  @page { size: {{PAGINA}}; margin: 16mm 18mm; }
+  :root { color-scheme: light; }
+  html, body { margin: 0; padding: 0; background: #fff; color: #111; }
+  body { font-family: Georgia, "Times New Roman", serif; font-size: 10.5pt; line-height: 1.4; }
+  main { max-width: 190mm; margin: 0 auto; padding: 14mm 12mm; }
+  header { margin-bottom: 8pt; }
+  header .nombre { font-size: 19pt; font-weight: 700; letter-spacing: 0.2px; margin: 0; }
+  header .contacto { margin: 3pt 0 0; font-size: 9.5pt; color: #333; }
+  header .contacto a { color: inherit; text-decoration: none; }
+  h1 { font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; text-transform: uppercase; letter-spacing: 1px; margin: 12pt 0 4pt; padding-bottom: 2pt; border-bottom: 1px solid #999; }
+  h2 { font-size: 11pt; margin: 8pt 0 2pt; }
+  h3 { font-size: 10pt; margin: 4pt 0 2pt; font-weight: 600; color: #333; }
+  p { margin: 0 0 4pt; }
+  ul { margin: 0 0 4pt; padding-left: 14pt; }
+  li { margin: 0 0 2pt; }
+  a { color: #0b4f8a; }
+  .titular { font-size: 11pt; font-weight: 600; margin: 2pt 0 4pt; }
+  @media screen {
+    body { background: #e9e9e9; padding: 24px 0; }
+    main { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+    .barra { position: fixed; top: 0; left: 0; right: 0; background: #1b1b1b; color: #f2ede4; font: 13px system-ui, sans-serif; padding: 8px 16px; display: flex; gap: 16px; align-items: center; z-index: 9; }
+    .barra button { font: inherit; padding: 4px 12px; border-radius: 6px; border: 1px solid #f2ede4; background: transparent; color: inherit; cursor: pointer; }
+    .barra button:hover { background: #f2ede4; color: #1b1b1b; }
+    body { padding-top: 56px; }
+  }
+  @media print { .barra { display: none; } main { padding: 0; max-width: none; } }
+</style>
+</head>
+<body>
+<div class="barra"><span>{{AVISO_IMPRIMIR}}</span><button onclick="window.print()">{{BOTON_IMPRIMIR}}</button><span>{{ARCHIVO}}</span></div>
+<main>
+  <header>
+    <p class="nombre">{{NOMBRE}}</p>
+    <p class="titular">{{TITULAR}}</p>
+    <p class="contacto">{{CONTACTO}}</p>
+  </header>
+  {{CUERPO}}
+</main>
+</body>
+</html>

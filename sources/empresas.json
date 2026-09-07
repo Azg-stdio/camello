@@ -1,0 +1,1071 @@
+[
+  {
+    "nombre": "Acquia",
+    "ats": "greenhouse",
+    "slug": "acquia",
+    "etiquetas": [
+      "drupal",
+      "producto",
+      "hosting"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Empresa detrás de Drupal (DXP). Feed verificado 2026-09-06 con 11 vacantes.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Pantheon",
+    "ats": "greenhouse",
+    "slug": "pantheon",
+    "etiquetas": [
+      "drupal",
+      "hosting"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Hosting Drupal y WordPress. Feed verificado 2026-09-06 con 29 vacantes.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Bounteous",
+    "ats": "lever",
+    "slug": "bounteous",
+    "etiquetas": [
+      "drupal",
+      "agencia",
+      "consultora"
+    ],
+    "contrata_en": [],
+    "nota": "Consultora digital; publica roles Drupal. 28 vacantes al agregar.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Jobgether",
+    "ats": "lever",
+    "slug": "jobgether",
+    "etiquetas": [
+      "agencia",
+      "remote-first",
+      "latam",
+      "php",
+      "drupal"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Agregador/reclutadora remota; ~4.000 vacantes, varias \"Fully remote (Latam)\" con Drupal y PHP. Volumen alto: el filtro de títulos hace parte del trabajo.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Bluelight Consulting",
+    "ats": "lever",
+    "slug": "bluelightconsulting",
+    "etiquetas": [
+      "consultora",
+      "remote-first",
+      "latam",
+      "php"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Consultora que contrata casi solo \"Remote, Latin America\"; ~200 vacantes mencionan PHP/Laravel/TS.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Truelogic",
+    "ats": "ashby",
+    "slug": "truelogic",
+    "etiquetas": [
+      "consultora",
+      "remote-first",
+      "latam",
+      "php"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Nearshore LATAM con vacantes senior back/front-end y \"Open Application\".",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "ImageX",
+    "ats": "lever",
+    "slug": "imagexmedia",
+    "etiquetas": [
+      "drupal",
+      "agencia"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Agencia Drupal (Vancouver); su \"Open Job Application\" menciona LATAM.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "BLEN",
+    "ats": "lever",
+    "slug": "blencorp",
+    "etiquetas": [
+      "drupal",
+      "agencia",
+      "php"
+    ],
+    "contrata_en": [],
+    "nota": "Agencia gov/Drupal en EE. UU.; publica Full Stack y Drupal Developer.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Forum One",
+    "ats": "greenhouse",
+    "slug": "forumone",
+    "etiquetas": [
+      "drupal",
+      "agencia"
+    ],
+    "contrata_en": [],
+    "nota": "Agencia Drupal (DC); publica Drupal Developer en este board.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Orium",
+    "ats": "greenhouse",
+    "slug": "orium",
+    "etiquetas": [
+      "drupal",
+      "agencia",
+      "php"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Agencia comercio/Drupal (Canadá); menciona LATAM.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "OneTrust",
+    "ats": "greenhouse",
+    "slug": "onetrust",
+    "etiquetas": [
+      "producto",
+      "drupal"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "SaaS con equipo web Drupal.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Velir",
+    "ats": "greenhouse",
+    "slug": "velir",
+    "etiquetas": [
+      "agencia",
+      "cms"
+    ],
+    "contrata_en": [],
+    "nota": "Agencia digital (Sitecore/Drupal) en Boston.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Launchpad Technologies",
+    "ats": "greenhouse",
+    "slug": "launchpadtechnologiesinc",
+    "etiquetas": [
+      "consultora",
+      "drupal",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Publicó \"Drupal Development Lead\"; talent community LATAM.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Sparksoft",
+    "ats": "greenhouse",
+    "slug": "sparksoftcorporation",
+    "etiquetas": [
+      "consultora",
+      "drupal"
+    ],
+    "contrata_en": [],
+    "nota": "Contratista federal EE. UU.; publica Sr. Drupal Developer. Verificar elegibilidad caso a caso.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "American Institutes for Research",
+    "ats": "greenhouse",
+    "slug": "americaninstitutesforresearch",
+    "etiquetas": [
+      "drupal"
+    ],
+    "contrata_en": [],
+    "nota": "Publicó \"Software Drupal Developer\" (PHP custom).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "CivicActions",
+    "ats": "greenhouse",
+    "slug": "civicactions",
+    "etiquetas": [
+      "drupal",
+      "agencia"
+    ],
+    "contrata_en": [],
+    "nota": "Agencia Drupal gov (EE. UU.). Feed válido, 0 vacantes al agregar.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Storyblok",
+    "ats": "greenhouse",
+    "slug": "storyblok",
+    "etiquetas": [
+      "cms",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Headless CMS remote-first; menciona Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Sanity",
+    "ats": "ashby",
+    "slug": "sanity",
+    "etiquetas": [
+      "cms",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Headless CMS; varias vacantes TypeScript.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Contentstack",
+    "ats": "greenhouse",
+    "slug": "contentstack",
+    "etiquetas": [
+      "cms",
+      "producto"
+    ],
+    "contrata_en": [],
+    "nota": "Headless CMS.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Contentful",
+    "ats": "greenhouse",
+    "slug": "contentful",
+    "etiquetas": [
+      "cms",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Headless CMS. Feed válido, 0 vacantes al agregar.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Bloomreach",
+    "ats": "greenhouse",
+    "slug": "bloomreach",
+    "etiquetas": [
+      "cms",
+      "producto"
+    ],
+    "contrata_en": [],
+    "nota": "DXP y commerce.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Prismic",
+    "ats": "lever",
+    "slug": "prismic",
+    "etiquetas": [
+      "cms",
+      "producto"
+    ],
+    "contrata_en": [],
+    "nota": "Headless CMS (Francia).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Webflow",
+    "ats": "greenhouse",
+    "slug": "webflow",
+    "etiquetas": [
+      "cms",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Constructor de sitios.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Platform.sh",
+    "ats": "greenhouse",
+    "slug": "platformsh",
+    "etiquetas": [
+      "hosting",
+      "php",
+      "drupal",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "PaaS con foco PHP/Drupal (Upsun). 7 vacantes al agregar.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Kinsta",
+    "ats": "lever",
+    "slug": "kinsta",
+    "etiquetas": [
+      "hosting",
+      "wordpress",
+      "php",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Hosting WordPress remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Remote.com",
+    "ats": "greenhouse",
+    "slug": "remotecom",
+    "etiquetas": [
+      "remote-first",
+      "latam",
+      "producto"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "EOR remote-first; menciona Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Oyster",
+    "ats": "ashby",
+    "slug": "oyster",
+    "etiquetas": [
+      "remote-first",
+      "latam",
+      "producto"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "EOR remote-first; menciona Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Deel",
+    "ats": "ashby",
+    "slug": "deel",
+    "etiquetas": [
+      "remote-first",
+      "latam",
+      "producto"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "EOR. Feed válido, 0 vacantes públicas al agregar.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Andela",
+    "ats": "ashby",
+    "slug": "andela",
+    "etiquetas": [
+      "remote-first",
+      "latam",
+      "consultora"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Marketplace de talento.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Toptal",
+    "ats": "lever",
+    "slug": "toptal",
+    "etiquetas": [
+      "remote-first",
+      "consultora"
+    ],
+    "contrata_en": [],
+    "nota": "Roles internos (core).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Turing",
+    "ats": "greenhouse",
+    "slug": "turing",
+    "etiquetas": [
+      "remote-first",
+      "consultora"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Marketplace de talento; menciona Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Terminal",
+    "ats": "ashby",
+    "slug": "terminal",
+    "etiquetas": [
+      "remote-first",
+      "latam",
+      "consultora"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Contrata ingenieros en LATAM para startups de EE. UU.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Zapier",
+    "ats": "ashby",
+    "slug": "zapier",
+    "etiquetas": [
+      "remote-first",
+      "producto"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Remote-first; menciona Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Buffer",
+    "ats": "ashby",
+    "slug": "buffer",
+    "etiquetas": [
+      "remote-first",
+      "producto",
+      "php"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first; stack con PHP.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Blue Coding",
+    "ats": "lever",
+    "slug": "bluecoding",
+    "etiquetas": [
+      "consultora",
+      "latam",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "\"Exclusivamente candidatos en LATAM\".",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "LatamCent",
+    "ats": "ashby",
+    "slug": "latamcent",
+    "etiquetas": [
+      "consultora",
+      "latam",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Staffing LATAM.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "DevSavant",
+    "ats": "ashby",
+    "slug": "devsavant",
+    "etiquetas": [
+      "consultora",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Staffing LATAM con Colombia explícito.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Cuesta Partners",
+    "ats": "ashby",
+    "slug": "cuesta-partners",
+    "etiquetas": [
+      "consultora",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Menciona Bogotá, Medellín y Cali.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Agility IO",
+    "ats": "ashby",
+    "slug": "agility.io",
+    "etiquetas": [
+      "consultora",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Senior Full Stack contractor en LATAM.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Puzzle Consulting Services",
+    "ats": "ashby",
+    "slug": "puzzle-consulting-services",
+    "etiquetas": [
+      "consultora",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "\"Remote Latam\".",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Luxury Presence",
+    "ats": "lever",
+    "slug": "luxurypresence",
+    "etiquetas": [
+      "producto",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Vacantes \"LATAM (Remote)\" en ingeniería.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Modus Create",
+    "ats": "greenhouse",
+    "slug": "moduscreate",
+    "etiquetas": [
+      "consultora",
+      "remote-first",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Consultora remote-first; menciona Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Wizeline",
+    "ats": "greenhouse",
+    "slug": "wizeline",
+    "etiquetas": [
+      "consultora",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Nearshore (México/Colombia).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Thoughtworks",
+    "ats": "greenhouse",
+    "slug": "thoughtworks",
+    "etiquetas": [
+      "consultora",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Consultora global con oficinas en LATAM.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Sezzle",
+    "ats": "greenhouse",
+    "slug": "sezzle",
+    "etiquetas": [
+      "producto",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Fintech con equipo grande en Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Clara",
+    "ats": "greenhouse",
+    "slug": "clara",
+    "etiquetas": [
+      "producto",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Fintech LATAM (MX/BR/CO).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "dLocal",
+    "ats": "lever",
+    "slug": "dlocal",
+    "etiquetas": [
+      "producto",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Fintech uruguaya.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Bold",
+    "ats": "greenhouse",
+    "slug": "bold",
+    "etiquetas": [
+      "producto",
+      "latam"
+    ],
+    "contrata_en": [
+      "co"
+    ],
+    "nota": "Fintech colombiana.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Glacier",
+    "ats": "ashby",
+    "slug": "glacier",
+    "etiquetas": [
+      "producto",
+      "latam"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "\"Fully Remote USD - Latin America\".",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Temporal",
+    "ats": "ashby",
+    "slug": "temporal",
+    "etiquetas": [
+      "producto",
+      "remote-first",
+      "php"
+    ],
+    "contrata_en": [],
+    "nota": "Producto con SDK PHP.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Supabase",
+    "ats": "ashby",
+    "slug": "supabase",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Grafana Labs",
+    "ats": "greenhouse",
+    "slug": "grafanalabs",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Canonical",
+    "ats": "greenhouse",
+    "slug": "canonical",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "100% remoto, contrata en cualquier país.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "GitLab",
+    "ats": "greenhouse",
+    "slug": "gitlab",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Remote-first, contrata en Colombia.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Cloudflare",
+    "ats": "greenhouse",
+    "slug": "cloudflare",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Grande; muchas vacantes fuera de perfil, el filtro de títulos ayuda.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Twilio",
+    "ats": "greenhouse",
+    "slug": "twilio",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam",
+      "co"
+    ],
+    "nota": "Producto con SDKs PHP.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Mozilla",
+    "ats": "greenhouse",
+    "slug": "mozilla",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Wikimedia",
+    "ats": "greenhouse",
+    "slug": "wikimedia",
+    "etiquetas": [
+      "producto",
+      "php",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "MediaWiki es PHP; remoto global.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Netlify",
+    "ats": "greenhouse",
+    "slug": "netlify",
+    "etiquetas": [
+      "hosting",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Hosting frontend.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Vercel",
+    "ats": "greenhouse",
+    "slug": "vercel",
+    "etiquetas": [
+      "hosting",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Hosting frontend.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Sourcegraph",
+    "ats": "greenhouse",
+    "slug": "sourcegraph91",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Ojo: el slug es sourcegraph91.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Tailscale",
+    "ats": "greenhouse",
+    "slug": "tailscale",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "1Password",
+    "ats": "ashby",
+    "slug": "1password",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "PostHog",
+    "ats": "ashby",
+    "slug": "posthog",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Linear",
+    "ats": "ashby",
+    "slug": "linear",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Senior/Staff Fullstack (TS).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Railway",
+    "ats": "ashby",
+    "slug": "railway",
+    "etiquetas": [
+      "hosting",
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Neon",
+    "ats": "ashby",
+    "slug": "neon",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "PlanetScale",
+    "ats": "greenhouse",
+    "slug": "planetscale",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "WorkOS",
+    "ats": "ashby",
+    "slug": "workos",
+    "etiquetas": [
+      "producto"
+    ],
+    "contrata_en": [],
+    "nota": "Producto con SDK PHP.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Resend",
+    "ats": "ashby",
+    "slug": "resend",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Docker",
+    "ats": "ashby",
+    "slug": "docker",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "SonarSource",
+    "ats": "lever",
+    "slug": "sonarsource",
+    "etiquetas": [
+      "producto"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Producto (análisis de código).",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Algolia",
+    "ats": "greenhouse",
+    "slug": "algolia",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Customer.io",
+    "ats": "greenhouse",
+    "slug": "customerio",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "LaunchDarkly",
+    "ats": "greenhouse",
+    "slug": "launchdarkly",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "CircleCI",
+    "ats": "greenhouse",
+    "slug": "circleci",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Typeform",
+    "ats": "greenhouse",
+    "slug": "typeform",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [],
+    "nota": "Remote-first.",
+    "agregada": "2026-09-06"
+  },
+  {
+    "nombre": "Dropbox",
+    "ats": "greenhouse",
+    "slug": "dropbox",
+    "etiquetas": [
+      "producto",
+      "remote-first"
+    ],
+    "contrata_en": [
+      "latam"
+    ],
+    "nota": "Virtual-first.",
+    "agregada": "2026-09-06"
+  }
+]

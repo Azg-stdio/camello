@@ -7,7 +7,7 @@ Que la ingesta corra sola cada N horas sin depender de que el agente esté abier
 ## Cómo
 
 - `camello schedule install --every 6h` registra una tarea en el sistema:
-  - **Windows:** `schtasks /Create /SC HOURLY /MO 6 /TN Camello /TR "node <ruta>/dist/cli/camello.js refresh --quiet"`.
+  - **Windows:** `schtasks /Create /SC HOURLY /MO 6 /TN Camello /TR "node <ruta>/dist/src/cli/camello.js refresh --quiet"`.
   - **macOS / Linux:** línea en `crontab` con marcador `# camello`.
 - `camello schedule remove` la quita. `camello schedule status` muestra si existe, el intervalo y la última corrida (de la tabla `corridas`).
 - El intervalo también se guarda en `config.local.json` → `refresh.cada: "6h"` para que el dashboard y el agente lo muestren.
